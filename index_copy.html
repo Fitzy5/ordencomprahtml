@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width. initial-scale=1.0">
+    <title>Display Image with Text Overlay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="image-container">
+        <img src="capital.jpg" alt="Background Image" style="width: 100%; height: auto;">
+        <div class="text-overlay" style="top: 23.33%; left: 7%;">{{vendedor}}</div>
+        <div class="text-overlay" style="top: 24.53%; left: 7%;">{{provider}}</div>
+        <div class="text-overlay" style="top: 28.4%; left: 7%;">{{direccion_proveedor}}</div>
+        <div class="text-overlay" style="top: 29.6%; left: 7%;">{{ubicacion_proveedor}}</div>
+        <div class="text-overlay" style="top: 31.1%; left: 7%;">{{contacto_proveedor}}</div>
+        <div class="text-overlay" style="top: 33.0%; left: 7%;">{{correo_proveedor}}</div>
+        <div class="text-overlay" style="top: 22.92%; left: 54.00%;">{{forma_pago}}</div>
+        <div class="text-overlay" style="top: 27.5%; left: 54.00%;">retiro bodega</div>
+        <div class="text-overlay" style="top: 32.5%; left: 54.00%;">{{quotation_number}}</div>
+        <div class="text-overlay" style="top: 13.00%; left: 85.44%;">{{fecha_oc}}</div>
+        <div class="text-overlay" style="top: 14.60%; left: 86.4%;">{{nro_oc}}</div>
+        <div class="text-overlay-right" style="top: 66.2%; right: 6.80%;">{{total}}</div>
+        <div class="text-overlay-right" style="top: 68.2%; right: 6.80%;">{{total_tax}}</div>
+        <div class="text-overlay-right" style="top: 73.6%; right: 6.80%;">{{grand_total}}</div>
+        <div class="text-overlay-right" style="top: 69.6%; right: 6.80%;">0</div>
+        <div class="text-overlay-right" style="top: 71.6%; right: 6.80%;">0</div>
+        
+        <div class="text-overlay-right" style="top: 37.6%; right: 85.00%;">{{code1}}</div>
+        <div class="text-overlay" style="top: 37.6%; left: 20.00%;">{{description1}}</div>
+        <div class="text-overlay" style="top: 37.6%; left: 55.00%;">{{quantity1}}</div>
+        <div class="text-overlay" style="top: 37.6%; left: 65.00%;">{{unit1}}</div>
+        <div class="text-overlay-right" style="top: 37.6%; right: 18.00%;">{{unit_price1}}</div>
+        <div class="text-overlay-right" style="top: 37.6%; right: 6.80%;">{{sub_total1}}</div>
+        
+        <div class="text-overlay-right" style="top: 39.3%; right: 85.00%;">{{code2}}</div>
+        <div class="text-overlay" style="top: 39.3%; left: 20.00%;">{{description2}}</div>
+        <div class="text-overlay" style="top: 39.3%; left: 55.00%;">{{quantity2}}</div>
+        <div class="text-overlay" style="top: 39.3%; left: 65.00%;">{{unit2}}</div>
+        <div class="text-overlay-right" style="top: 39.3%; right: 18.00%;">{{unit_price2}}</div>
+        <div class="text-overlay-right" style="top: 39.3%; right: 6.80%;">{{sub_total2}}</div>
+        
+        <div class="text-overlay-right" style="top: 40.6%; right: 85.00%;">{{code3}}</div>
+        <div class="text-overlay" style="top: 40.6%; left: 20.00%;">{{description3}}</div>
+        <div class="text-overlay" style="top: 40.6%; left: 55.00%;">{{quantity3}}</div>
+        <div class="text-overlay" style="top: 40.6%; left: 65.00%;">{{unit3}}</div>
+        <div class="text-overlay-right" style="top: 40.6%; right: 18.00%;">{{unit_price3}}</div>
+        <div class="text-overlay-right" style="top: 40.6%; right: 6.80%;">{{sub_total3}}</div>
+        
+        <div class="text-overlay-right" style="top: 42.3%; right: 85.00%;">{{code4}}</div>
+        <div class="text-overlay" style="top: 42.3%; left: 20.00%;">{{description4}}</div>
+        <div class="text-overlay" style="top: 42.3%; left: 55.00%;">{{quantity4}}</div>
+        <div class="text-overlay" style="top: 42.3%; left: 65.00%;">{{unit4}}</div>
+        <div class="text-overlay-right" style="top: 42.3%; right: 18.00%;">{{unit_price4}}</div>
+        <div class="text-overlay-right" style="top: 42.3%; right: 6.8%;">{{sub_total4}}</div>
+        
+        <div class="text-overlay-right" style="top: 43.8%; right: 85.00%;">{{code5}}</div>
+        <div class="text-overlay" style="top: 43.8%; left: 20.00%;">{{description5}}</div>
+        <div class="text-overlay" style="top: 43.8%; left: 55.00%;">{{quantity5}}</div>
+        <div class="text-overlay" style="top: 43.8%; left: 65.00%;">{{unit5}}</div>
+        <div class="text-overlay-right" style="top: 43.8%; right: 18.00%;">{{unit_price5}}</div>
+        <div class="text-overlay-right" style="top: 43.8%; right: 6.8%;">{{sub_total5}}</div>
+        
+        <div class="text-overlay-right" style="top: 45.3%; right: 85.00%;">{{code6}}</div>
+        <div class="text-overlay" style="top: 45.3%; left: 20.00%;">{{description6}}</div>
+        <div class="text-overlay" style="top: 45.3%; left: 55.00%;">{{quantity6}}</div>
+        <div class="text-overlay" style="top: 45.3%; left: 65.00%;">{{unit6}}</div>
+        <div class="text-overlay-right" style="top: 45.3%; right: 18.00%;">{{unit_price6}}</div>
+        <div class="text-overlay-right" style="top: 45.3%; right: 6.8%;">{{sub_total6}}</div>
+        
+        <div class="text-overlay-right" style="top: 46.6%; right: 85.00%;">{{code7}}</div>
+        <div class="text-overlay" style="top: 46.6%; left: 20.00%;">{{description7}}</div>
+        <div class="text-overlay" style="top: 46.6%; left: 55.00%;">{{quantity7}}</div>
+        <div class="text-overlay" style="top: 46.6%; left: 65.00%;">{{unit7}}</div>
+        <div class="text-overlay-right" style="top: 46.6%; right: 18.00%;">{{unit_price7}}</div>
+        <div class="text-overlay-right" style="top: 46.6%; right: 6.8%;">{{sub_total7}}</div>
+        
+        <div class="text-overlay-right" style="top: 48.4%; right: 85.00%;">{{code8}}</div>
+        <div class="text-overlay" style="top: 48.4%; left: 20.00%;">{{description8}}</div>
+        <div class="text-overlay" style="top: 48.4%; left: 55.00%;">{{quantity8}}</div>
+        <div class="text-overlay" style="top: 48.4%; left: 65.00%;">{{unit8}}</div>
+        <div class="text-overlay-right" style="top: 48.4%; right: 18.00%;">{{unit_price8}}</div>
+        <div class="text-overlay-right" style="top: 48.4%; right: 6.8%;">{{sub_total8}}</div>
+        
+        <div class="text-overlay-right" style="top: 50.3%; right: 85.00%;">{{code9}}</div>
+        <div class="text-overlay" style="top: 50.3%; left: 20.00%;">{{description9}}</div>
+        <div class="text-overlay" style="top: 50.3%; left: 55.00%;">{{quantity9}}</div>
+        <div class="text-overlay" style="top: 50.3%; left: 65.00%;">{{unit9}}</div>
+        <div class="text-overlay-right" style="top: 50.3%; right: 18.00%;">{{unit_price9}}</div>
+        <div class="text-overlay-right" style="top: 50.3%; right: 6.8%;">{{sub_total9}}</div>
+        
+        <div class="text-overlay-right" style="top: 51.8%; right: 85.00%;">{{code10}}</div>
+        <div class="text-overlay" style="top: 51.8%; left: 20.00%;">{{description10}}</div>
+        <div class="text-overlay" style="top: 51.8%; left: 55.00%;">{{quantity10}}</div>
+        <div class="text-overlay" style="top: 51.8%; left: 65.00%;">{{unit10}}</div>
+        <div class="text-overlay-right" style="top: 51.8%; right: 18.00%;">{{unit_price10}}</div>
+        <div class="text-overlay-right" style="top: 51.8%; right: 6.8%;">{{sub_total10}}</div>
+        
+        <div class="text-overlay-right" style="top: 53.3%; right: 85.00%;">{{code11}}</div>
+        <div class="text-overlay" style="top: 53.3%; left: 20.00%;">{{description11}}</div>
+        <div class="text-overlay" style="top: 53.3%; left: 55.00%;">{{quantity11}}</div>
+        <div class="text-overlay" style="top: 53.3%; left: 65.00%;">{{unit11}}</div>
+        <div class="text-overlay-right" style="top: 53.3%; right: 18.00%;">{{unit_price11}}</div>
+        <div class="text-overlay-right" style="top: 53.3%; right: 6.8%;">{{sub_total11}}</div>
+        
+        <div class="text-overlay-right" style="top: 54.8%; right: 85.00%;">{{code12}}</div>
+        <div class="text-overlay" style="top: 54.8%; left: 20.00%;">{{description12}}</div>
+        <div class="text-overlay" style="top: 54.8%; left: 55.00%;">{{quantity12}}</div>
+        <div class="text-overlay" style="top: 54.8%; left: 65.00%;">{{unit12}}</div>
+        <div class="text-overlay-right" style="top: 54.8%; right: 18.00%;">{{unit_price12}}</div>
+        <div class="text-overlay-right" style="top: 54.8%; right: 6.8%;">{{sub_total12}}</div>
+        
+        <div class="text-overlay-right" style="top: 56.3%; right: 85.00%;">{{code13}}</div>
+        <div class="text-overlay" style="top: 56.3%; left: 20.00%;">{{description13}}</div>
+        <div class="text-overlay" style="top: 56.3%; left: 55.00%;">{{quantity13}}</div>
+        <div class="text-overlay" style="top: 56.3%; left: 65.00%;">{{unit13}}</div>
+        <div class="text-overlay-right" style="top: 56.3%; right: 18.00%;">{{unit_price13}}</div>
+        <div class="text-overlay-right" style="top: 56.3%; right: 6.8%;">{{sub_total13}}</div>
+        
+        <div class="text-overlay-right" style="top: 57.8%; right: 85.00%;">{{code14}}</div>
+        <div class="text-overlay" style="top: 57.8%; left: 20.00%;">{{description14}}</div>
+        <div class="text-overlay" style="top: 57.8%; left: 55.00%;">{{quantity14}}</div>
+        <div class="text-overlay" style="top: 57.8%; left: 65.00%;">{{unit14}}</div>
+        <div class="text-overlay-right" style="top: 57.8%; right: 18.00%;">{{unit_price14}}</div>
+        <div class="text-overlay-right" style="top: 57.8%; right: 6.8%;">{{sub_total14}}</div>
+        
+        <div class="text-overlay-right" style="top: 59.4%; right: 85.00%;">{{code15}}</div>
+        <div class="text-overlay" style="top: 59.4%; left: 20.00%;">{{description15}}</div>
+        <div class="text-overlay" style="top: 59.4%; left: 55.00%;">{{quantity15}}</div>
+        <div class="text-overlay" style="top: 59.4%; left: 65.00%;">{{unit15}}</div>
+        <div class="text-overlay-right" style="top: 59.4%; right: 18.00%;">{{unit_price15}}</div>
+        <div class="text-overlay-right" style="top: 59.4%; right: 6.8%;">{{sub_total15}}</div>
+        
+        <div class="text-overlay-right" style="top: 60.9%; right: 85.00%;">{{code16}}</div>
+        <div class="text-overlay" style="top: 60.9%; left: 20.00%;">{{description16}}</div>
+        <div class="text-overlay" style="top: 60.9%; left: 55.00%;">{{quantity16}}</div>
+        <div class="text-overlay" style="top: 60.9%; left: 65.00%;">{{unit16}}</div>
+        <div class="text-overlay-right" style="top: 60.9%; right: 18.00%;">{{unit_price16}}</div>
+        <div class="text-overlay-right" style="top: 60.9%; right: 6.8%;">{{sub_total16}}</div>
+        
+        <div class="text-overlay-right" style="top: 62.6%; right: 85.00%;">{{code17}}</div>
+        <div class="text-overlay" style="top: 62.6%; left: 20.00%;">{{description17}}</div>
+        <div class="text-overlay" style="top: 62.6%; left: 55.00%;">{{quantity17}}</div>
+        <div class="text-overlay" style="top: 62.6%; left: 65.00%;">{{unit17}}</div>
+        <div class="text-overlay-right" style="top: 62.6%; right: 18.00%;">{{unit_price17}}</div>
+        <div class="text-overlay-right" style="top: 62.6%; right: 6.8%;">{{sub_total17}}</div>
+        
+        <div class="text-overlay-right" style="top: 64%; right: 85.00%;">{{code18}}</div>
+        <div class="text-overlay" style="top: 64%; left: 20.00%;">{{description18}}</div>
+        <div class="text-overlay" style="top: 64%; left: 55.00%;">{{quantity18}}</div>
+        <div class="text-overlay" style="top: 64%; left: 65.00%;">{{unit18}}</div>
+        <div class="text-overlay-right" style="top: 64%; right: 18.00%;">{{unit_price18}}</div>
+        <div class="text-overlay-right" style="top: 64%; right: 6.8%;">{{sub_total18}}</div>
+        
+        
+        
+    </div>
+</body>
+</html>

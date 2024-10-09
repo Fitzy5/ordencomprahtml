@@ -1,0 +1,33 @@
+/* Style for the entire body to remove any default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+/* Style for the image container */
+.image-container {
+    position: relative; /* Establishes a positioning context for absolute positioning */
+    width: 100%; /* Full width of the container */
+    height: auto; /* Adjusts height to maintain the image aspect ratio */
+    max-height: 100vh; /* Ensures the container does not exceed the viewport height */
+}
+
+/* Style for overlaying text */
+.text-overlay {
+    position: absolute;
+    color: rgb(0, 0, 0); /* Text color for visibility */
+    font-size: 1.3vw; /* Responsive font size based on viewport width */
+    font-family: Arial, sans-serif; /* Clean and modern font */
+    
+}
+.text-overlay-right {
+    position: absolute;
+    color: rgb(0, 0, 0); /* Text color for visibility */
+    font-size: 1.3vw; /* Responsive font size based on viewport width */
+    font-family: Arial, sans-serif; /* Clean and modern font */
+    right: 0; /* Aligns the text to the right side of the container */
+
+    
+}
