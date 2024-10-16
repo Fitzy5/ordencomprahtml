@@ -238,21 +238,27 @@ def extract_quotation_info(pdf_path):
                     product_number = (i // 8) + 1
                     quantity = float(product_lines[i + 3].strip().replace('.', '').replace(',', '.')) / 100
                     raw_unit_price = product_lines[i + 6].strip()
+                    print(raw_unit_price)
                     cleaned_unit_price = raw_unit_price.replace(',', '').replace('.', '')
+                    print(cleaned_unit_price)
 
 
                     if len(cleaned_unit_price) > 2:
                         formatted_unit_price = cleaned_unit_price[:-2] + '.' + cleaned_unit_price[-2:]
                     else:
                         formatted_unit_price = '0.' + cleaned_unit_price.zfill(2)
+                    
 
                     unit_price = float(formatted_unit_price)
+                    print(unit_price)
 
                     subtotal = quantity * unit_price
+                    print("subtotal real" + str(subtotal))
                     total_sum += subtotal
 
                     display_unit_price = "$" + locale.currency(float(formatted_unit_price), grouping=True, symbol=False)
-                    display_subtotal = "$" + locale.currency(math.ceil(subtotal), grouping=True, symbol=False).split('.')[0]
+                    display_subtotal = "$" + locale.currency(subtotal, grouping=True, symbol=False).split('.')[0]
+                    print("display subtotal" + str(display_subtotal))
 
                     extracted_info[f"item_number{product_number}"] = product_lines[i].strip()
                     extracted_info[f"code{product_number}"] = product_lines[i + 1].strip()
@@ -262,9 +268,10 @@ def extract_quotation_info(pdf_path):
                     extracted_info[f"unit_price{product_number}"] = display_unit_price
                     extracted_info[f"sub_total{product_number}"] = display_subtotal
 
-        total = round(total_sum)
+        total = math.floor(total_sum)
         total_tax = round(total * 0.19)
-        grand_total = round(total + total_tax)
+        grand_total = math.ceil(total + total_tax)
+        print(grand_total)
 
         extracted_info['total'] = "$" + locale.currency(total, grouping=True, symbol=False).split('.')[0]
         extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
