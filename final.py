@@ -140,13 +140,13 @@ async def main(extracted_info):
         html_content = render_html('default_template.html', extracted_info)
 
     # Specify the directory where your CSS file is located
-    css_directory = r'C:\Users\jfrit\Desktop\PROYECTOS\vscode\ordencomprahtml'
+    css_directory = r''
 
     # Create the temporary HTML file in the same directory as your CSS file
     with tempfile.NamedTemporaryFile(suffix=".html", dir=css_directory, delete=False) as temp_html_file:
         temp_html_file.write(html_content.encode('utf-8'))
         temp_html_path = temp_html_file.name
-    output_pdf = r"C://Users//jfrit//Desktop//ORDEN DE COMPRA.pdf"
+    output_pdf = r"ORDEN DE COMPRA.pdf"
     
     await html_to_pdf(temp_html_path, output_pdf)
 
@@ -154,7 +154,7 @@ async def main(extracted_info):
     os.remove(temp_html_path)
 
 async def html_to_pdf(html_file, output_pdf):
-    browser = await launch(headless=True, executablePath=r'C:\Users\jfrit\Desktop\PROYECTOS\chrome portable\GoogleChromePortable\GoogleChromePortable.exe')
+    browser = await launch(headless=True, executablePath=r'chrome portable\GoogleChromePortable\GoogleChromePortable.exe')
     page = await browser.newPage()
     await page.goto(f'file:///{html_file}')
     await page.pdf({'path': output_pdf, 'format': 'A4'})
@@ -169,7 +169,7 @@ def extract_quotation_info(pdf_path):
 
 
     number = 0
-    with open(r'C:\Users\jfrit\Desktop\PROYECTOS\vscode\ordencomprahtml\nro_oc.txt', 'r') as file:
+    with open(r'nro_oc.txt', 'r') as file:
         number = int(file.read().strip())
 
     # Load the PDF document
