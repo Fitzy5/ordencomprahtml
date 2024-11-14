@@ -252,7 +252,7 @@ def extract_quotation_info(pdf_path):
                     unit_price = float(formatted_unit_price)
                     print(unit_price)
 
-                    subtotal = quantity * unit_price
+                    subtotal = math.ceil(quantity * unit_price)
                     print("subtotal real" + str(subtotal))
                     total_sum += subtotal
 
@@ -268,7 +268,7 @@ def extract_quotation_info(pdf_path):
                     extracted_info[f"unit_price{product_number}"] = display_unit_price
                     extracted_info[f"sub_total{product_number}"] = display_subtotal
 
-        total = math.floor(total_sum)
+        total = math.ceil(total_sum)
         total_tax = round(total * 0.19)
         grand_total = math.ceil(total + total_tax)
         print(grand_total)
