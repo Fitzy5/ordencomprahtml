@@ -1,3 +1,35 @@
+#fix loader puting correlational oc numbers to old quotations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import fitz  # PyMuPDF
 import re
 from jinja2 import Environment, FileSystemLoader
