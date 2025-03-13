@@ -201,8 +201,6 @@ def render_html(template_path, context):
     return template.render(context)  # Render the template with the provided context
 
 def extract_quotation_info(pdf_path):
-
-
     number = 0
     with open(r'nro_oc.txt', 'r') as file:
         number = int(file.read().strip())
@@ -229,66 +227,40 @@ def extract_quotation_info(pdf_path):
     else:
         extracted_info['addressee'] = "Unknown"
 
+    # Helper function to parse products with error handling
+    def parse_products(provider_text, start_marker, end_marker, lines_per_product, quantity_idx, unit_idx, desc_idx, price_idx):
+        nonlocal total_sum, extracted_info
+        start_index = provider_text.find(start_marker) + len(start_marker)
+        end_index = provider_text.find(end_marker)
+        
+        if start_index != -1 and end_index != -1:
+            product_text = provider_text[start_index:end_index].strip()
+            product_lines = product_text.splitlines()
 
-    if "MCT" in text:
-            extracted_info.update(info_mct)
-            fecha_oc = datetime.today().strftime('%d-%m-%Y')
-            extracted_info['fecha_oc'] = fecha_oc
-            extracted_info['forma_pago'] = "cheque 45 días"
+            total_sum = 0
 
-            extracted_info['nro_oc'] = number
-            number += 1
-            with open('nro_oc.txt', 'w') as file:
-                file.write(str(number))
-
-            extracted_info['provider'] = "MCT"
-
-            # Regex pattern to find the product code and ensure there is a newline after it
-            code_pattern = r"(\n\d{4,5}-\d)([^\n])"
-            text = re.sub(code_pattern, r"\1\n\2", text)
-
-            date_issue_pattern = r"FECHA DE EMISIÓN\s*:\s*(\d{2}-\d{2}-\d{4})"
-            quotation_number_pattern = r"COTIZACIÓN\s*N°\s*:\s*(\d+)"
-
-            date_issue_match = re.search(date_issue_pattern, text)
-            quotation_number_match = re.search(quotation_number_pattern, text)
-
-            extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
-            extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
-
-            # Process products
-            start_index = text.find("SUB-TOTAL") + len("SUB-TOTAL")
-            end_index = text.find("LA COLUMNA")
-            
-            if start_index != -1 and end_index != -1:
-                product_text = text[start_index:end_index].strip()
-                product_lines = product_text.splitlines()
-
-                total_sum = 0
-
-                for i in range(0, len(product_lines), 8):
-                    if i + 7 < len(product_lines):
-                        product_number = (i // 8) + 1
+            try:
+                for i in range(0, len(product_lines), lines_per_product):
+                    if i + (lines_per_product - 1) < len(product_lines):
+                        product_number = (i // lines_per_product) + 1
                         
                         # Parse quantity
-                        quantity = float(product_lines[i + 3].strip().replace('.', '').replace(',', '.')) / 100
+                        quantity_str = product_lines[i + quantity_idx].strip().replace('.', '').replace(',', '.')
+                        quantity = float(quantity_str) / 100  # Default for MCT, adjusted later for others
                         
                         # Parse unit price
-                        raw_unit_price = product_lines[i + 6].strip()
+                        raw_unit_price = product_lines[i + price_idx].strip()
                         cleaned_unit_price = raw_unit_price.replace(',', '').replace('.', '')
-
                         if len(cleaned_unit_price) > 2:
                             formatted_unit_price = cleaned_unit_price[:-2] + '.' + cleaned_unit_price[-2:]
                         else:
                             formatted_unit_price = '0.' + cleaned_unit_price.zfill(2)
-
                         unit_price = float(formatted_unit_price)
                         
-                        # Calculate exact subtotal and apply rounding rule
+                        # Calculate subtotal
                         exact_subtotal = quantity * unit_price
                         decimal_part = exact_subtotal - math.floor(exact_subtotal)
                         subtotal = math.ceil(exact_subtotal) if decimal_part >= 0.5 else math.floor(exact_subtotal)
-                        
                         total_sum += subtotal
 
                         # Format for display
@@ -297,27 +269,125 @@ def extract_quotation_info(pdf_path):
 
                         # Store product information
                         extracted_info[f"item_number{product_number}"] = product_lines[i].strip()
-                        extracted_info[f"code{product_number}"] = product_lines[i + 1].strip()
+                        extracted_info[f"code{product_number}"] = product_lines[i + 1].strip() if i + 1 < len(product_lines) else ""
                         extracted_info[f"quantity{product_number}"] = str(quantity)
-                        extracted_info[f"unit{product_number}"] = product_lines[i + 4].strip()
-                        extracted_info[f"description{product_number}"] = product_lines[i + 5].strip()
+                        extracted_info[f"unit{product_number}"] = product_lines[i + unit_idx].strip() if i + unit_idx < len(product_lines) else ""
+                        extracted_info[f"description{product_number}"] = product_lines[i + desc_idx].strip()
                         extracted_info[f"unit_price{product_number}"] = display_unit_price
                         extracted_info[f"sub_total{product_number}"] = display_subtotal
 
-                # Calculate totals using the same rounding logic
-                total = total_sum  # total_sum is already properly rounded per item
-                exact_tax = total * 0.19
-                decimal_part_tax = exact_tax - math.floor(exact_tax)
-                total_tax = math.ceil(exact_tax) if decimal_part_tax >= 0.5 else math.floor(exact_tax)
+            except ValueError as e:
+                print(f"Error encountered: {e}")
+                print(f"\nExtracted PDF content between '{start_marker}' and '{end_marker}':")
+                print("----------------------------------------")
+                print(product_text)
+                print("----------------------------------------")
                 
-                exact_grand_total = total + total_tax
-                decimal_part_grand = exact_grand_total - math.floor(exact_grand_total)
-                grand_total = math.ceil(exact_grand_total) if decimal_part_grand >= 0.5 else math.floor(exact_grand_total)
+                # Copy the extracted text to clipboard
+                root = tk.Tk()
+                root.withdraw()  # Hide the main window
+                root.clipboard_clear()
+                root.clipboard_append(product_text)
+                root.update()  # Ensure clipboard is updated
+                root.destroy()
+                
+                print("The extracted text has been copied to your clipboard.")
+                print("Please paste it into a text editor, fix the issue (e.g., correct formatting or separate combined codes), and copy the corrected text back to your clipboard.")
+                confirmation = input("Is the corrected text in your clipboard? (y/n): ").strip().lower()
+                
+                if confirmation == 'y':
+                    # Retrieve corrected text from clipboard
+                    root = tk.Tk()
+                    root.withdraw()
+                    corrected_text = root.clipboard_get()
+                    root.destroy()
 
-                # Format totals for display
-                extracted_info['total'] = "$" + locale.currency(total, grouping=True, symbol=False).split('.')[0]
-                extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
-                extracted_info['grand_total'] = "$" + locale.currency(grand_total, grouping=True, symbol=False).split('.')[0]
+                    if corrected_text.strip():
+                        # Retry parsing with corrected text
+                        product_lines = corrected_text.splitlines()
+                        total_sum = 0
+                        for i in range(0, len(product_lines), lines_per_product):
+                            if i + (lines_per_product - 1) < len(product_lines):
+                                product_number = (i // lines_per_product) + 1
+                                
+                                # Parse quantity
+                                quantity_str = product_lines[i + quantity_idx].strip().replace('.', '').replace(',', '.')
+                                quantity = float(quantity_str) / 100  # Default, adjusted later
+                                
+                                # Parse unit price
+                                raw_unit_price = product_lines[i + price_idx].strip()
+                                cleaned_unit_price = raw_unit_price.replace(',', '').replace('.', '')
+                                if len(cleaned_unit_price) > 2:
+                                    formatted_unit_price = cleaned_unit_price[:-2] + '.' + cleaned_unit_price[-2:]
+                                else:
+                                    formatted_unit_price = '0.' + cleaned_unit_price.zfill(2)
+                                unit_price = float(formatted_unit_price)
+                                
+                                # Calculate subtotal
+                                exact_subtotal = quantity * unit_price
+                                decimal_part = exact_subtotal - math.floor(exact_subtotal)
+                                subtotal = math.ceil(exact_subtotal) if decimal_part >= 0.5 else math.floor(exact_subtotal)
+                                total_sum += subtotal
+
+                                # Format for display
+                                display_unit_price = "$" + locale.currency(unit_price, grouping=True, symbol=False)
+                                display_subtotal = "$" + locale.currency(subtotal, grouping=True, symbol=False).split('.')[0]
+
+                                # Store product information
+                                extracted_info[f"item_number{product_number}"] = product_lines[i].strip()
+                                extracted_info[f"code{product_number}"] = product_lines[i + 1].strip() if i + 1 < len(product_lines) else ""
+                                extracted_info[f"quantity{product_number}"] = str(quantity)
+                                extracted_info[f"unit{product_number}"] = product_lines[i + unit_idx].strip() if i + unit_idx < len(product_lines) else ""
+                                extracted_info[f"description{product_number}"] = product_lines[i + desc_idx].strip()
+                                extracted_info[f"unit_price{product_number}"] = display_unit_price
+                                extracted_info[f"sub_total{product_number}"] = display_subtotal
+                    else:
+                        print("Clipboard is empty. Skipping product parsing.")
+                        return False  # Indicate failure to parse products
+                else:
+                    print("No corrected text provided. Skipping product parsing.")
+                    return False  # Indicate failure to parse products
+                return True  # Indicate successful retry
+        return True  # Indicate successful initial parse
+
+    if "MCT" in text:
+        extracted_info.update(info_mct)
+        fecha_oc = datetime.today().strftime('%d-%m-%Y')
+        extracted_info['fecha_oc'] = fecha_oc
+        extracted_info['forma_pago'] = "cheque 45 días"
+        extracted_info['nro_oc'] = number
+        number += 1
+        with open('nro_oc.txt', 'w') as file:
+            file.write(str(number))
+        extracted_info['provider'] = "MCT"
+
+        code_pattern = r"(\n\d{4,5}-\d)([^\n])"
+        text = re.sub(code_pattern, r"\1\n\2", text)
+
+        date_issue_pattern = r"FECHA DE EMISIÓN\s*:\s*(\d{2}-\d{2}-\d{4})"
+        quotation_number_pattern = r"COTIZACIÓN\s*N°\s*:\s*(\d+)"
+
+        date_issue_match = re.search(date_issue_pattern, text)
+        quotation_number_match = re.search(quotation_number_pattern, text)
+
+        extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
+        extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
+
+        if not parse_products(text, "SUB-TOTAL", "LA COLUMNA", 8, 3, 4, 5, 6):
+            return extracted_info  # Return partial data if parsing fails
+
+        # Calculate totals
+        total = total_sum
+        exact_tax = total * 0.19
+        decimal_part_tax = exact_tax - math.floor(exact_tax)
+        total_tax = math.ceil(exact_tax) if decimal_part_tax >= 0.5 else math.floor(exact_tax)
+        exact_grand_total = total + total_tax
+        decimal_part_grand = exact_grand_total - math.floor(exact_grand_total)
+        grand_total = math.ceil(exact_grand_total) if decimal_part_grand >= 0.5 else math.floor(exact_grand_total)
+
+        extracted_info['total'] = "$" + locale.currency(total, grouping=True, symbol=False).split('.')[0]
+        extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
+        extracted_info['grand_total'] = "$" + locale.currency(grand_total, grouping=True, symbol=False).split('.')[0]
 
     elif "EBEMA" in text:
         extracted_info.update(info_ebema)
@@ -330,7 +400,6 @@ def extract_quotation_info(pdf_path):
         with open('nro_oc.txt', 'w') as file:
             file.write(str(number))
 
-
         date_issue_pattern = r"(\d{2}-\d{2}-\d{4})\s*FECHA"
         quotation_number_pattern = r"N°\s*(\d+)"
 
@@ -340,68 +409,23 @@ def extract_quotation_info(pdf_path):
         extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
         extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
 
-        # Add a newline before and after "PLANCHA"
         plancha_pattern = r"([^\n])?(PLANCHA)([^\n])"
         text = re.sub(plancha_pattern, r"\1\n\2\n\3", text, flags=re.IGNORECASE)
-
-        # Add a newline before and after "METRO CUA"
         metro_cua_pattern = r"([^\n])?(METRO CUA)([^\n])"
         text = re.sub(metro_cua_pattern, r"\1\n\2\n\3", text, flags=re.IGNORECASE)
+        kilogramo_pattern = r"([^\n])?(KILOGRAMO)([^\n])"
+        text = re.sub(kilogramo_pattern, r"\1\n\2\n\3", text, flags=re.IGNORECASE)
 
-        # Add a newline before and after "KILOGRAMO"
-        metro_cua_pattern = r"([^\n])?(KILOGRAMO)([^\n])"
-        text = re.sub(metro_cua_pattern, r"\1\n\2\n\3", text, flags=re.IGNORECASE)
+        if not parse_products(text, "TOTAL", "VIGENCIA HASTA:", 7, 4, 2, 3, 5):
+            return extracted_info
 
-        # Clean up and process products
-        start_index = text.find("TOTAL") + len("TOTAL")
-        end_index = text.find("VIGENCIA HASTA:")
-        print(start_index,end_index)
-        
-        if start_index != -1 and end_index != -1:
-            product_text = text[start_index:end_index].strip()
-            product_lines = product_text.splitlines()
+        total = round(total_sum)
+        total_tax = round(total * 0.19)
+        grand_total = round(total + total_tax)
 
-            # Remove empty lines and trailing spaces
-            product_lines = [line.strip() for line in product_lines if line.strip()]
-
-            total_sum = 0
-
-            # Process each product line in chunks of 7
-            for i in range(0, len(product_lines), 7):  
-                if i + 6 < len(product_lines):
-                    product_number = (i // 7) + 1
-                    
-                    # Extract information for each product
-                    item_number = product_lines[i]
-                    code = product_lines[i + 1]
-                    unit = product_lines[i + 2]
-                    description = product_lines[i + 3].strip()
-                    quantity = float(product_lines[i + 4].replace('.', '').replace(',', '.'))
-                    unit_price = float(product_lines[i + 5].replace('.', '').replace(',', '.'))
-                    
-                    subtotal = round(quantity * unit_price)
-                    total_sum += subtotal
-
-                    # Formatting for display
-                    display_unit_price = "$" + locale.currency(unit_price, grouping=True, symbol=False).split('.')[0]
-                    display_subtotal = "$" + locale.currency(subtotal, grouping=True, symbol=False).split('.')[0]
-
-                    extracted_info[f"item_number{product_number}"] = item_number
-                    extracted_info[f"code{product_number}"] = code
-                    extracted_info[f"unit{product_number}"] = unit
-                    extracted_info[f"description{product_number}"] = description
-                    extracted_info[f"quantity{product_number}"] = str(quantity)
-                    extracted_info[f"unit_price{product_number}"] = display_unit_price
-                    extracted_info[f"sub_total{product_number}"] = display_subtotal
-
-            # Calculate totals
-            total = round(total_sum)
-            total_tax = round(total * 0.19)
-            grand_total = round(total + total_tax)
-
-            extracted_info['total'] = "$" + locale.currency(total, grouping=True, symbol=False).split('.')[0]
-            extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
-            extracted_info['grand_total'] = "$" + locale.currency(grand_total, grouping=True, symbol=False).split('.')[0]
+        extracted_info['total'] = "$" + locale.currency(total, grouping=True, symbol=False).split('.')[0]
+        extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
+        extracted_info['grand_total'] = "$" + locale.currency(grand_total, grouping=True, symbol=False).split('.')[0]
 
     elif "COMERCIAL ADCO LTDA." in text:
         extracted_info.update(info_adco)
@@ -412,10 +436,8 @@ def extract_quotation_info(pdf_path):
         number += 1
         with open('nro_oc.txt', 'w') as file:
             file.write(str(number))
-
         extracted_info['provider'] = "COMERCIAL ADCO LTDA."
 
-        # Extract date of issue
         date_issue_pattern = r"(\d{2}-\d{2}-\d{4})"
         date_issue_match = re.search(date_issue_pattern, text)
         extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
@@ -423,85 +445,16 @@ def extract_quotation_info(pdf_path):
         quotation_number_match = re.search(quotation_number_pattern, text)
         extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
 
+        if not parse_products(text, "FONO: 045-2318391", "MIGUEL BRAVO SEGURA", 5, 1, None, 2, 3):
+            return extracted_info
 
-        # Locate starting and ending indices
-        start_phrase = "FONO: 045-2318391"
-        end_phrase = "MIGUEL BRAVO SEGURA"
-        start_index = text.find(start_phrase) + len(start_phrase)
-        end_index = text.find(end_phrase)
+        total_tax = round(total_sum * 0.19)
+        grand_total = round(total_sum + total_tax)
 
-        if start_index != -1 and end_index != -1:
-            product_text = text[start_index:end_index].strip()
-            product_lines = product_text.splitlines()
+        extracted_info['total'] = "$" + locale.currency(total_sum, grouping=True, symbol=False).split('.')[0]
+        extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
+        extracted_info['grand_total'] = "$" + locale.currency(grand_total, grouping=True, symbol=False).split('.')[0]
 
-            # Remove empty lines and whitespace
-            product_lines = [line.strip() for line in product_lines if line.strip()]
-
-            total_sum = 0
-            idx = 0  # Start from the first line
-
-            product_number = 1  # To keep track of product numbers
-
-            # Process the product lines
-            while idx < len(product_lines):
-                try:
-                    # Skip the subtotal line (Line 1)
-                    idx += 1  # Move to quantity line
-
-                    # Line 2: Quantity
-                    quantity_line = product_lines[idx]
-                    quantity = float(quantity_line.replace('.', '').replace(',', '.'))
-
-                    idx += 1  # Move to description line
-
-                    # Line 3: Description
-                    description_line = product_lines[idx]
-
-                    idx += 1  # Move to unit price line
-
-                    # Line 4: Unit Price
-                    unit_price_line = product_lines[idx]
-                    unit_price = float(unit_price_line.replace('.', '').replace(',', '.'))
-
-                    idx += 1  # Move to code line
-
-                    # Line 5: Code
-                    code_line = product_lines[idx]
-
-                    # Calculate subtotal
-                    sub_total = round(quantity * unit_price)
-                    total_sum += sub_total
-
-                    # Format values for display
-                    display_unit_price = "$" + locale.currency(unit_price, grouping=True, symbol=False).split('.')[0]
-                    display_subtotal = "$" + locale.currency(sub_total, grouping=True, symbol=False).split('.')[0]
-
-                    # Store extracted info
-                    extracted_info[f"item_number{product_number}"] = str(product_number)
-                    extracted_info[f"code{product_number}"] = code_line
-                    extracted_info[f"description{product_number}"] = description_line
-                    extracted_info[f"quantity{product_number}"] = str(quantity)
-                    extracted_info[f"unit_price{product_number}"] = display_unit_price
-                    extracted_info[f"sub_total{product_number}"] = display_subtotal
-                    extracted_info[f"unit{product_number}"] = "UN"  # Set unit as "UN"
-
-                    # Prepare for next product
-                    idx += 1  # Move to the next product's subtotal line
-                    product_number += 1
-
-                except (ValueError, IndexError) as e:
-                    # Handle parsing errors or incomplete data
-                    print(f"Error parsing product at index {idx}: {e}")
-                    idx += 1  # Move to the next line to continue processing
-
-            # Calculate totals
-            total_tax = round(total_sum * 0.19)
-            grand_total = round(total_sum + total_tax)
-
-            extracted_info['total'] = "$" + locale.currency(total_sum, grouping=True, symbol=False).split('.')[0]
-            extracted_info['total_tax'] = "$" + locale.currency(total_tax, grouping=True, symbol=False).split('.')[0]
-            extracted_info['grand_total'] = "$" + locale.currency(grand_total, grouping=True, symbol=False).split('.')[0]
-    
     elif "AISLACENTRO LTDA" in text:
         extracted_info.update(info_aislacentro)
         fecha_oc = datetime.today().strftime('%d-%m-%Y')
@@ -511,105 +464,29 @@ def extract_quotation_info(pdf_path):
         number += 1
         with open('nro_oc.txt', 'w') as file:
             file.write(str(number))
-
         extracted_info['provider'] = "AISLACENTRO LTDA"
 
         quotation_number_pattern = r'Nro:\s*0*(\d{4,})'
-        quotation_number_match = re.search(quotation_number_pattern, text,re.IGNORECASE)
+        quotation_number_match = re.search(quotation_number_pattern, text, re.IGNORECASE)
         extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
 
-
-        # Extract date of issue
         date_issue_pattern = r"(\d{1,2} de [A-Za-z]+ de \d{4})"
         date_issue_match = re.search(date_issue_pattern, text)
         extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else fecha_oc
 
-        # Locate starting and ending indices
-        start_phrase = "NOMBRE RESPONSABLE"
-        end_phrase = "OBSERVACIONES:"
-    
+        if not parse_products(text, "NOMBRE RESPONSABLE", "OBSERVACIONES:", 7, 0, 1, 2, 5):
+            return extracted_info
 
-        start_index = text.find(start_phrase) + len(start_phrase)
-        end_index = text.find(end_phrase)
-        print(start_index,end_index)
-        if start_index != -1 and end_index != -1:
-            product_text = text[start_index:end_index].strip()
-            product_lines = product_text.splitlines()
+        total_tax = total_sum * 0.19
+        grand_total = total_sum + total_tax
 
-            # Remove empty lines and whitespace
-            product_lines = [line.strip() for line in product_lines if line.strip()]
+        display_total_value = math.ceil(total_sum)
+        display_total_tax_value = math.ceil(total_tax)
+        display_grand_total_value = math.ceil(grand_total)
 
-            total_sum = 0
-            idx = 0  # Start from the first line
-
-            product_number = 1  # To keep track of product numbers
-
-            # Process the product lines
-            while idx + 6 < len(product_lines):
-                try:
-                    # Line 1: Quantity
-                    quantity_line = product_lines[idx]
-                    quantity = float(quantity_line.replace('.', '').replace(',', '.'))
-
-                    # Line 2: Unit
-                    unit_line = product_lines[idx + 1]
-                    unit = unit_line
-
-                    # Line 3: Description
-                    description_line = product_lines[idx + 2]
-
-                    # Line 4: List Price (ignored)
-                    # idx + 3
-
-                    # Line 5: Discount (ignored)
-                    # idx + 4
-
-                    # Line 6: Price
-                    unit_price_line = product_lines[idx + 5]
-                    unit_price = float(unit_price_line.replace('.', '').replace(',', '.'))
-
-                    # Calculate subtotal
-                    sub_total = quantity * unit_price
-                    total_sum += sub_total
-
-                    # Round up the displayed subtotal
-                    display_subtotal_value = math.ceil(sub_total)
-
-                    # Format values for display
-                    display_unit_price = "$" + locale.currency(unit_price, grouping=True, symbol=False).split('.')[0]
-                    display_subtotal = "$" + locale.currency(display_subtotal_value, grouping=True, symbol=False).split('.')[0]
-
-                    # Store extracted info
-                    extracted_info[f"item_number{product_number}"] = str(product_number)
-                    extracted_info[f"code{product_number}"] = ''  # No code provided
-                    extracted_info[f"description{product_number}"] = description_line
-                    extracted_info[f"quantity{product_number}"] = str(quantity)
-                    extracted_info[f"unit_price{product_number}"] = display_unit_price
-                    extracted_info[f"sub_total{product_number}"] = display_subtotal
-                    extracted_info[f"unit{product_number}"] = unit
-
-                    # Prepare for next product
-                    idx += 7  # Move to the next product's quantity line
-                    product_number += 1
-
-                except (ValueError, IndexError) as e:
-                    # Handle parsing errors or incomplete data
-                    print(f"Error parsing product at index {idx}: {e}")
-                    idx += 1  # Move to the next line to continue processing
-
-            # Calculate totals using actual subtotals
-            total_tax = total_sum * 0.19
-            grand_total = total_sum + total_tax
-
-            # Round up totals for display
-            display_total_value = math.ceil(total_sum)
-            display_total_tax_value = math.ceil(total_tax)
-            display_grand_total_value = math.ceil(grand_total)
-
-            # Format totals for display
-            extracted_info['total'] = "$" + locale.currency(display_total_value, grouping=True, symbol=False).split('.')[0]
-            extracted_info['total_tax'] = "$" + locale.currency(display_total_tax_value, grouping=True, symbol=False).split('.')[0]
-            extracted_info['grand_total'] = "$" + locale.currency(display_grand_total_value, grouping=True, symbol=False).split('.')[0]
+        extracted_info['total'] = "$" + locale.currency(display_total_value, grouping=True, symbol=False).split('.')[0]
+        extracted_info['total_tax'] = "$" + locale.currency(display_total_tax_value, grouping=True, symbol=False).split('.')[0]
+        extracted_info['grand_total'] = "$" + locale.currency(display_grand_total_value, grouping=True, symbol=False).split('.')[0]
 
     elif "AISLAPANEL" in text and "NOTA DE VENTA" in text:
         extracted_info.update(info_aislapanel_nv)
@@ -622,7 +499,6 @@ def extract_quotation_info(pdf_path):
         with open('nro_oc.txt', 'w') as file:
             file.write(str(number))
 
-        # Extract date and other details
         date_issue_pattern = r"FECHA\s*:\s*(\d{2}-\d{2}-\d{4})"
         quotation_number_pattern = r"NOTA DE VENTA\s*:\s*(\d+)"
 
@@ -632,14 +508,13 @@ def extract_quotation_info(pdf_path):
         extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
         extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
 
-        # Extract product information (including product codes)
         product_pattern = r"(\d+)\s+(PB\d{2}[A-Z]+\d{5}A)\s+(\d+,\d+)\s+(.+?)\s+([\d\.]+)\s+([\d\.]+)"
         products = re.findall(product_pattern, text, re.IGNORECASE)
 
         total_sum = 0
 
         for idx, product in enumerate(products, start=1):
-            code = product[1]  # Extract the product code
+            code = product[1]
             quantity = float(product[2].replace(",", "."))
             description = product[3].strip()
             unit_price = float(product[4].replace(".", "").replace(",", "."))
@@ -674,7 +549,6 @@ def extract_quotation_info(pdf_path):
         with open('nro_oc.txt', 'w') as file:
             file.write(str(number))
 
-        # Extract date and other details
         date_issue_pattern = r"FECHA DE EMISIÓN\s*:\s*(\d{2}-\d{2}-\d{4})"
         quotation_number_pattern = r"COTIZACION DE VENTA\s*:\s*(\d+)"
 
@@ -684,14 +558,13 @@ def extract_quotation_info(pdf_path):
         extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
         extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"
 
-        # Extract product information (including product codes)
         product_pattern = r"(PB\d{2}[A-Z]+\d{5}A)\s+M2\s+(\d+,\d+)\s+(.+?)\s+([\d\.]+)\s+([\d\.]+)"
         products = re.findall(product_pattern, text, re.IGNORECASE)
 
         total_sum = 0
 
         for idx, product in enumerate(products, start=1):
-            code = product[0]  # Extract the product code
+            code = product[0]
             quantity = float(product[1].replace(",", "."))
             description = product[2].strip()
             unit_price = float(product[3].replace(".", "").replace(",", "."))
@@ -717,6 +590,7 @@ def extract_quotation_info(pdf_path):
 
     print(extracted_info)
     return extracted_info
+
 
 def update_cvs(extracted_info):
     # Define the CSV file path
