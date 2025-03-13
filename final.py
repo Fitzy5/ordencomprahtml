@@ -1,4 +1,7 @@
 #fix loader puting correlational oc numbers to old quotations
+#extend product limit
+#make oc modifiable
+#add prices to excel
 
 
 
