@@ -5,7 +5,11 @@
 
 
 
-
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+print("Current working directory set to:", os.getcwd())
+print("Files in CWD:", os.listdir(os.getcwd()))
 
 
 
@@ -189,7 +193,7 @@ async def main(extracted_info):
     os.remove(temp_html_path)
 
 async def html_to_pdf(html_file, output_pdf):
-    browser = await launch(headless=True, executablePath=r'chrome portable\GoogleChromePortable\GoogleChromePortable.exe')
+    browser = await launch(headless=True, executablePath=r'C:\GoogleChromePortable64\GoogleChromePortable.exe')
     page = await browser.newPage()
     await page.goto(f'file:///{html_file}')
     await page.pdf({'path': output_pdf, 'format': 'A4'})
