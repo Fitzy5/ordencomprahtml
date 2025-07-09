@@ -1,0 +1,89 @@
+2025-07-09 10:38:41,307 - INFO - Extracted info: {'addressee': 'CONSTRUCTORA MAHUIDA'}
+2025-07-09 10:38:41,309 - INFO - Updated CSV with 0 rows for nro_oc Unknown
+2025-07-09 10:38:41,335 - INFO - Starting Chromium download.
+2025-07-09 10:40:11,212 - INFO - Extracted info: {'addressee': 'CONSTRUCTORA MAHUIDA'}
+2025-07-09 10:40:11,215 - INFO - Updated CSV with 0 rows for nro_oc Unknown
+2025-07-09 10:40:11,238 - INFO - Starting Chromium download.
+2025-07-09 11:22:35,174 - INFO - Saved extracted text for ADCO to extracted_text_ADCO_20250709_112235.txt
+2025-07-09 11:25:27,586 - WARNING - User cancelled text correction for ADCO
+2025-07-09 11:25:27,586 - WARNING - Skipped C:/Users/jfrit/Downloads/177226 mahuida (1).pdf due to parsing issues or cancellation
+2025-07-09 11:26:26,184 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250709_112626.txt
+2025-07-09 11:26:29,981 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250709_112626.txt
+2025-07-09 11:26:29,984 - INFO - Updated CSV with 3 rows for nro_oc 888
+2025-07-09 11:26:30,559 - INFO - Browser listening on: ws://127.0.0.1:51948/devtools/browser/837719de-c2ef-47b7-ba7e-bfdb7c2c507d
+2025-07-09 11:26:30,757 - INFO - terminate chrome process...
+2025-07-09 11:26:30,762 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-09 11:29:51,353 - INFO - Saved extracted text for ADCO to extracted_text_ADCO_20250709_112951.txt
+2025-07-09 11:31:21,818 - WARNING - User cancelled text correction for ADCO
+2025-07-09 11:31:21,818 - WARNING - Skipped C:/Users/jfrit/Downloads/177226 mahuida.pdf due to parsing issues or cancellation
+2025-07-09 11:31:54,371 - INFO - Saved extracted text for ADCO to extracted_text_ADCO_20250709_113154.txt
+2025-07-09 11:32:10,854 - WARNING - User cancelled text correction for ADCO
+2025-07-09 11:32:10,855 - WARNING - Skipped C:/Users/jfrit/Downloads/mahuida.pdf due to parsing issues or cancellation
+2025-07-09 11:32:19,692 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250709_113219.txt
+2025-07-09 11:32:22,206 - WARNING - User cancelled text correction for EBEMA
+2025-07-09 11:32:22,206 - WARNING - Skipped C:/Users/jfrit/Desktop/COTIZACION N° 738370 CONST. CAPITAL FIELTRO 09-07-2025.pdf due to parsing issues or cancellation
+2025-07-09 11:35:01,485 - INFO - Processing PDF: sample.pdf
+2025-07-09 11:35:01,488 - INFO - Extracted text from page 1 of sample.pdf
+2025-07-09 11:35:03,231 - INFO - Successfully printed text content of sample.pdf
+2025-07-09 11:49:17,942 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250709_114917.txt
+2025-07-09 11:49:21,811 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250709_114917.txt
+2025-07-09 11:49:21,822 - WARNING - Duplicate entry for quotation 738370 or nro_oc 892
+2025-07-09 11:49:22,384 - INFO - Browser listening on: ws://127.0.0.1:52149/devtools/browser/5bdb8a69-f627-4c11-a076-151e568feb6e
+2025-07-09 11:49:22,574 - INFO - terminate chrome process...
+2025-07-09 11:49:22,580 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-09 11:50:43,101 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250709_115043.txt
+2025-07-09 11:50:46,446 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250709_115043.txt
+2025-07-09 11:50:46,448 - WARNING - Duplicate entry for quotation 738370 or nro_oc 886
+2025-07-09 11:50:46,999 - INFO - Browser listening on: ws://127.0.0.1:52161/devtools/browser/42c759ad-41bf-4791-a007-21a98b234267
+2025-07-09 11:50:47,193 - INFO - terminate chrome process...
+2025-07-09 11:50:47,198 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-09 11:52:38,802 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20250709_115238.txt
+2025-07-09 11:52:46,186 - INFO - Saved corrected text for ADCO_NOTA_DE_VENTA to corrected_text_ADCO_NOTA_DE_VENTA_20250709_115238.txt
+2025-07-09 11:52:46,186 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 3: could not convert string to float: 'ESPUMA ADHESIVA DE PU CURADO RAPIDO 967P'
+2025-07-09 11:52:46,187 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 15: could not convert string to float: '%'
+2025-07-09 11:52:46,187 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 19: could not convert string to float: 'NETO'
+2025-07-09 11:52:46,187 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 21: could not convert string to float: 'TOTAL NOTA DE VENTA'
+2025-07-09 11:52:46,187 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 26: list index out of range
+2025-07-09 11:52:46,189 - INFO - Updated CSV with 2 rows for nro_oc 887
+2025-07-09 11:52:46,743 - INFO - Browser listening on: ws://127.0.0.1:52185/devtools/browser/a159cadf-e7b7-42e8-bd22-99a7f8220c41
+2025-07-09 11:52:46,939 - INFO - terminate chrome process...
+2025-07-09 11:52:46,944 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-09 11:54:15,730 - INFO - Processing PDF: sample.pdf
+2025-07-09 11:54:15,734 - INFO - Extracted text from page 1 of sample.pdf
+2025-07-09 11:54:17,112 - INFO - Successfully printed text content of sample.pdf
+2025-07-09 11:55:16,549 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20250709_115516.txt
+2025-07-09 12:01:22,261 - WARNING - User cancelled text correction for ADCO_NOTA_DE_VENTA
+2025-07-09 12:01:22,261 - WARNING - Skipped C:/Users/jfrit/Downloads/sample.pdf due to parsing issues or cancellation
+2025-07-09 12:01:33,625 - INFO - Processing PDF: sample.pdf
+2025-07-09 12:01:33,629 - INFO - Extracted text from page 1 of sample.pdf
+2025-07-09 12:01:34,820 - INFO - Successfully printed text content of sample.pdf
+2025-07-09 12:02:49,459 - INFO - Processing PDF: sample.pdf
+2025-07-09 12:02:49,463 - INFO - Extracted text from page 1 of sample.pdf
+2025-07-09 12:02:50,657 - INFO - Successfully printed text content of sample.pdf
+2025-07-09 12:21:24,971 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20250709_122124.txt
+2025-07-09 12:21:33,252 - INFO - Saved corrected text for ADCO_NOTA_DE_VENTA to corrected_text_ADCO_NOTA_DE_VENTA_20250709_122124.txt
+2025-07-09 12:21:33,253 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 19: could not convert string to float: 'NETO'
+2025-07-09 12:21:33,253 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 21: could not convert string to float: 'TOTAL NOTA DE VENTA'
+2025-07-09 12:21:33,253 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 26: list index out of range
+2025-07-09 12:21:33,255 - WARNING - Duplicate entry for quotation 838 or nro_oc 889
+2025-07-09 12:21:33,814 - INFO - Browser listening on: ws://127.0.0.1:52771/devtools/browser/06c212e7-6d2d-44c7-be4d-8036489a0fdd
+2025-07-09 12:21:34,047 - INFO - terminate chrome process...
+2025-07-09 12:21:34,053 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-09 12:23:17,658 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20250709_122317.txt
+2025-07-09 12:23:20,807 - INFO - Saved corrected text for ADCO_NOTA_DE_VENTA to corrected_text_ADCO_NOTA_DE_VENTA_20250709_122317.txt
+2025-07-09 12:23:20,807 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 19: could not convert string to float: 'NETO'
+2025-07-09 12:23:20,807 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 21: could not convert string to float: 'TOTAL NOTA DE VENTA'
+2025-07-09 12:23:20,807 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 26: list index out of range
+2025-07-09 12:23:20,810 - INFO - Updated CSV with 3 rows for nro_oc 890
+2025-07-09 12:23:21,367 - INFO - Browser listening on: ws://127.0.0.1:52933/devtools/browser/25c8dba9-9f11-4f3c-be06-454da34b84a8
+2025-07-09 12:23:21,581 - INFO - terminate chrome process...
+2025-07-09 12:23:21,586 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-09 12:24:16,279 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20250709_122416.txt
+2025-07-09 12:24:18,871 - INFO - Saved corrected text for ADCO_NOTA_DE_VENTA to corrected_text_ADCO_NOTA_DE_VENTA_20250709_122416.txt
+2025-07-09 12:24:18,872 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 19: could not convert string to float: 'NETO'
+2025-07-09 12:24:18,872 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 21: could not convert string to float: 'TOTAL NOTA DE VENTA'
+2025-07-09 12:24:18,872 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 26: list index out of range
+2025-07-09 12:24:18,873 - WARNING - Duplicate entry for quotation 838 or nro_oc 887
+2025-07-09 12:24:19,434 - INFO - Browser listening on: ws://127.0.0.1:52960/devtools/browser/e856a349-77f8-43d3-812f-bd5fbaee588d
+2025-07-09 12:24:19,641 - INFO - terminate chrome process...
+2025-07-09 12:24:19,647 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
