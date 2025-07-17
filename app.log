@@ -93,3 +93,42 @@
 2025-07-10 10:36:26,812 - INFO - Browser listening on: ws://127.0.0.1:51459/devtools/browser/6e465844-a3ac-40ad-ad74-bc48ab6bcad8
 2025-07-10 10:36:27,061 - INFO - terminate chrome process...
 2025-07-10 10:36:27,066 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-17 09:35:44,186 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250717_093544.txt
+2025-07-17 09:35:48,605 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250717_093544.txt
+2025-07-17 09:35:48,618 - INFO - Updated CSV with 3 rows for nro_oc 889
+2025-07-17 09:35:49,209 - INFO - Browser listening on: ws://127.0.0.1:55906/devtools/browser/04ce487f-8120-4edb-83d6-9d0a2ecafc9d
+2025-07-17 09:35:49,479 - INFO - terminate chrome process...
+2025-07-17 09:35:49,483 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-17 11:05:27,582 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250717_110527.txt
+2025-07-17 11:05:30,382 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250717_110527.txt
+2025-07-17 11:05:30,394 - WARNING - Duplicate entry for quotation 743097 or nro_oc 890
+2025-07-17 11:05:30,952 - INFO - Browser listening on: ws://127.0.0.1:57646/devtools/browser/8fd26b5e-9485-4fdf-9ae7-173eac1cbab0
+2025-07-17 11:05:31,150 - INFO - terminate chrome process...
+2025-07-17 11:05:31,155 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-17 12:29:50,853 - INFO - Saved extracted text for AISLAPANEL_NV to extracted_text_AISLAPANEL_NV_20250717_122950.txt
+2025-07-17 12:29:54,139 - INFO - Saved corrected text for AISLAPANEL_NV to corrected_text_AISLAPANEL_NV_20250717_122950.txt
+2025-07-17 12:29:54,153 - INFO - Updated CSV with 0 rows for nro_oc 891
+2025-07-17 12:29:54,738 - INFO - Browser listening on: ws://127.0.0.1:58972/devtools/browser/5d8faea9-8645-4f9c-a0f0-c164f8c1a26e
+2025-07-17 12:29:54,966 - INFO - terminate chrome process...
+2025-07-17 12:29:54,971 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-17 12:31:21,651 - INFO - Saved extracted text for AISLAPANEL_NV to extracted_text_AISLAPANEL_NV_20250717_123121.txt
+2025-07-17 12:35:26,496 - WARNING - User cancelled text correction for AISLAPANEL_NV
+2025-07-17 12:35:26,497 - WARNING - Skipped C:/Users/jfrit/Desktop/cotizaciones/NVV0000307789 MAHUIDA.pdf due to parsing issues or cancellation
+2025-07-17 12:35:32,279 - INFO - Saved extracted text for AISLAPANEL_NV to extracted_text_AISLAPANEL_NV_20250717_123532.txt
+2025-07-17 12:35:44,167 - INFO - Saved corrected text for AISLAPANEL_NV to corrected_text_AISLAPANEL_NV_20250717_123532.txt
+2025-07-17 12:35:44,170 - INFO - Updated CSV with 0 rows for nro_oc 893
+2025-07-17 12:35:44,734 - INFO - Browser listening on: ws://127.0.0.1:59039/devtools/browser/621f96d4-55a0-44e6-8ec0-8f8682ba2eb2
+2025-07-17 12:35:44,942 - INFO - terminate chrome process...
+2025-07-17 12:35:44,947 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-17 13:14:54,233 - INFO - Saved extracted text for AISLACENTRO to extracted_text_AISLACENTRO_20250717_131454.txt
+2025-07-17 13:14:57,790 - INFO - Saved corrected text for AISLACENTRO to corrected_text_AISLACENTRO_20250717_131454.txt
+2025-07-17 13:14:57,802 - INFO - Updated CSV with 3 rows for nro_oc 894
+2025-07-17 13:14:58,364 - INFO - Browser listening on: ws://127.0.0.1:59646/devtools/browser/4fdd13fa-c88f-4fad-bc6b-465c9d52b774
+2025-07-17 13:14:58,590 - INFO - terminate chrome process...
+2025-07-17 13:14:58,595 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-17 13:15:43,659 - INFO - Saved extracted text for AISLACENTRO to extracted_text_AISLACENTRO_20250717_131543.txt
+2025-07-17 13:15:48,346 - INFO - Saved corrected text for AISLACENTRO to corrected_text_AISLACENTRO_20250717_131543.txt
+2025-07-17 13:15:48,359 - INFO - Updated CSV with 3 rows for nro_oc 891
+2025-07-17 13:15:48,923 - INFO - Browser listening on: ws://127.0.0.1:59660/devtools/browser/c071a09f-b45f-4f0b-b434-653afe7c22e4
+2025-07-17 13:15:49,172 - INFO - terminate chrome process...
+2025-07-17 13:15:49,178 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf

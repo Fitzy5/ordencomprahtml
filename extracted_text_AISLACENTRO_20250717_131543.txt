@@ -1,0 +1,21 @@
+100,00
+UD
+PERFIL EIFS PVC MALLA TERMINACION 2,5MT           
+     3.100,00
+35
+     2.015,00
+    201.500
+       10,00
+UD
+MALLA EIFS BLANCA REFORZADA                       
+    41.090,00
+35
+    26.708,50
+    267.085
+       41,00
+UD
+BASE PRO EIFS SACO 22,7KG ETCO                    
+    10.590,00
+18
+     8.720,00
+    357.520
