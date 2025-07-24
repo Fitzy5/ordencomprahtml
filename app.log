@@ -138,3 +138,9 @@
 2025-07-22 12:44:34,612 - INFO - Browser listening on: ws://127.0.0.1:51205/devtools/browser/fecd516f-d992-4016-a602-a801c05d48b2
 2025-07-22 12:44:34,946 - INFO - terminate chrome process...
 2025-07-22 12:44:34,953 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-24 11:04:49,836 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250724_110449.txt
+2025-07-24 11:04:52,910 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250724_110449.txt
+2025-07-24 11:04:52,913 - INFO - Updated CSV with 2 rows for nro_oc 894
+2025-07-24 11:04:53,508 - INFO - Browser listening on: ws://127.0.0.1:52513/devtools/browser/081be29f-4a41-4579-898b-fb2049e64652
+2025-07-24 11:04:53,815 - INFO - terminate chrome process...
+2025-07-24 11:04:53,820 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
