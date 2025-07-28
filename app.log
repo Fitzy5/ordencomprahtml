@@ -144,3 +144,15 @@
 2025-07-24 11:04:53,508 - INFO - Browser listening on: ws://127.0.0.1:52513/devtools/browser/081be29f-4a41-4579-898b-fb2049e64652
 2025-07-24 11:04:53,815 - INFO - terminate chrome process...
 2025-07-24 11:04:53,820 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-28 12:27:05,151 - INFO - Saved extracted text for AISLAPANEL_CV to extracted_text_AISLAPANEL_CV_20250728_122705.txt
+2025-07-28 12:27:08,805 - INFO - Saved corrected text for AISLAPANEL_CV to corrected_text_AISLAPANEL_CV_20250728_122705.txt
+2025-07-28 12:27:08,819 - INFO - Updated CSV with 1 rows for nro_oc 895
+2025-07-28 12:27:09,925 - INFO - Browser listening on: ws://127.0.0.1:64354/devtools/browser/417428fd-5498-407d-be38-99a89c79e83c
+2025-07-28 12:27:10,219 - INFO - terminate chrome process...
+2025-07-28 12:27:10,225 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-28 12:42:14,593 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250728_124214.txt
+2025-07-28 12:42:18,324 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250728_124214.txt
+2025-07-28 12:42:18,337 - INFO - Updated CSV with 4 rows for nro_oc 896
+2025-07-28 12:42:18,904 - INFO - Browser listening on: ws://127.0.0.1:64531/devtools/browser/a2bd1e98-e2ef-4a4c-980f-042ae4b16dc6
+2025-07-28 12:42:19,141 - INFO - terminate chrome process...
+2025-07-28 12:42:19,147 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
