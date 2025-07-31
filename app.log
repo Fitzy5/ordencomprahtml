@@ -156,3 +156,11 @@
 2025-07-28 12:42:18,904 - INFO - Browser listening on: ws://127.0.0.1:64531/devtools/browser/a2bd1e98-e2ef-4a4c-980f-042ae4b16dc6
 2025-07-28 12:42:19,141 - INFO - terminate chrome process...
 2025-07-28 12:42:19,147 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-29 16:16:49,842 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250729_161649.txt
+2025-07-29 16:16:52,512 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250729_161649.txt
+2025-07-29 16:16:52,519 - INFO - Updated CSV with 1 rows for nro_oc 898
+2025-07-29 16:16:53,162 - INFO - Browser listening on: ws://127.0.0.1:59950/devtools/browser/141a2a85-6b2f-4818-99c9-ca9beeb8fe48
+2025-07-29 16:16:53,482 - INFO - terminate chrome process...
+2025-07-29 16:16:53,487 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-07-30 15:10:38,716 - ERROR - Could not find product boundaries for EBEMA
+2025-07-30 15:10:40,250 - WARNING - Skipped C:/Users/jfrit/Desktop/cotizaciones/PEDIDO N° 876009 CONST CAPITAL VOLCANITA 30-07-20_250730_144904.pdf due to parsing issues or cancellation
