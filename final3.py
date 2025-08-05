@@ -302,7 +302,7 @@ def extract_quotation_info(pdf_path):
         extracted_info['date_of_issue'] = date_issue_match.group(1) if date_issue_match else "Unknown"
         
         # Differentiate between COTIZACIÓN and NOTA DE VENTA
-        if "COTIZACIÓN" in text:
+        if "COTIZACION" in text:
             quotation_number_pattern = r"ART\. SEGURIDAD INDUSTRIAL Y FERRETERIA\s+(\d{5})"
             quotation_number_match = re.search(quotation_number_pattern, text)
             extracted_info['quotation_number'] = quotation_number_match.group(1) if quotation_number_match else "Unknown"

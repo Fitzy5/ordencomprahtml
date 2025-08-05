@@ -164,3 +164,38 @@
 2025-07-29 16:16:53,487 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
 2025-07-30 15:10:38,716 - ERROR - Could not find product boundaries for EBEMA
 2025-07-30 15:10:40,250 - WARNING - Skipped C:/Users/jfrit/Desktop/cotizaciones/PEDIDO N° 876009 CONST CAPITAL VOLCANITA 30-07-20_250730_144904.pdf due to parsing issues or cancellation
+2025-08-01 09:31:49,355 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250801_093149.txt
+2025-08-01 09:31:52,096 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20250801_093149.txt
+2025-08-01 09:31:52,109 - INFO - Updated CSV with 1 rows for nro_oc 900
+2025-08-01 09:31:52,749 - INFO - Browser listening on: ws://127.0.0.1:59318/devtools/browser/f1dd316a-48a5-489a-833c-b2bf55a3536f
+2025-08-01 09:31:53,009 - INFO - terminate chrome process...
+2025-08-01 09:31:53,015 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-05 13:27:01,941 - INFO - Updated CSV with 0 rows for nro_oc 901
+2025-08-05 13:27:02,585 - INFO - Browser listening on: ws://127.0.0.1:52203/devtools/browser/423eb414-6303-45e8-a85f-25209ce76398
+2025-08-05 13:27:02,844 - INFO - terminate chrome process...
+2025-08-05 13:27:02,850 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-05 13:28:51,097 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20250805_132851.txt
+2025-08-05 13:28:56,853 - WARNING - User cancelled text correction for EBEMA
+2025-08-05 13:28:56,853 - WARNING - Skipped C:/Users/jfrit/Desktop/cotizaciones/COTIZACION N° 753408 CONST. CAPITAL IPV 01-08-2025.pdf due to parsing issues or cancellation
+2025-08-05 13:29:06,222 - INFO - Updated CSV with 0 rows for nro_oc 903
+2025-08-05 13:29:06,776 - INFO - Browser listening on: ws://127.0.0.1:52246/devtools/browser/f3e7e79f-ffbf-40a1-ba2e-889e758e3ab5
+2025-08-05 13:29:06,968 - INFO - terminate chrome process...
+2025-08-05 13:29:06,973 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-05 13:31:17,693 - INFO - Saved extracted text for ADCO_COTIZACION to extracted_text_ADCO_COTIZACION_20250805_133117.txt
+2025-08-05 13:31:24,347 - INFO - Saved corrected text for ADCO_COTIZACION to corrected_text_ADCO_COTIZACION_20250805_133117.txt
+2025-08-05 13:31:24,350 - INFO - Updated CSV with 3 rows for nro_oc 904
+2025-08-05 13:31:24,907 - INFO - Browser listening on: ws://127.0.0.1:52276/devtools/browser/bb1542f0-f09f-4b8d-b184-c5ac9c1945b9
+2025-08-05 13:31:25,128 - INFO - terminate chrome process...
+2025-08-05 13:31:25,133 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-05 13:32:06,702 - INFO - Saved extracted text for ADCO_COTIZACION to extracted_text_ADCO_COTIZACION_20250805_133206.txt
+2025-08-05 13:32:10,121 - INFO - Saved corrected text for ADCO_COTIZACION to corrected_text_ADCO_COTIZACION_20250805_133206.txt
+2025-08-05 13:32:10,122 - WARNING - Duplicate entry for quotation 90585 or nro_oc 901
+2025-08-05 13:32:10,686 - INFO - Browser listening on: ws://127.0.0.1:52292/devtools/browser/912aab44-5649-4b5b-a410-c7ec2d2bcf45
+2025-08-05 13:32:10,903 - INFO - terminate chrome process...
+2025-08-05 13:32:10,908 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-05 13:33:48,359 - INFO - Saved extracted text for AISLACENTRO to extracted_text_AISLACENTRO_20250805_133348.txt
+2025-08-05 13:33:50,968 - INFO - Saved corrected text for AISLACENTRO to corrected_text_AISLACENTRO_20250805_133348.txt
+2025-08-05 13:33:50,981 - INFO - Updated CSV with 2 rows for nro_oc 902
+2025-08-05 13:33:51,540 - INFO - Browser listening on: ws://127.0.0.1:52331/devtools/browser/7b7d657a-75e1-4702-a068-3b5a4416b706
+2025-08-05 13:33:51,742 - INFO - terminate chrome process...
+2025-08-05 13:33:51,747 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
