@@ -199,3 +199,18 @@
 2025-08-05 13:33:51,540 - INFO - Browser listening on: ws://127.0.0.1:52331/devtools/browser/7b7d657a-75e1-4702-a068-3b5a4416b706
 2025-08-05 13:33:51,742 - INFO - terminate chrome process...
 2025-08-05 13:33:51,747 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-08 09:57:40,657 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20250808_095740.txt
+2025-08-08 09:57:43,883 - INFO - Saved corrected text for ADCO_NOTA_DE_VENTA to corrected_text_ADCO_NOTA_DE_VENTA_20250808_095740.txt
+2025-08-08 09:57:43,883 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 14: could not convert string to float: 'NETO'
+2025-08-08 09:57:43,883 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 16: could not convert string to float: 'TOTAL NOTA DE VENTA'
+2025-08-08 09:57:43,884 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 21: list index out of range
+2025-08-08 09:57:43,887 - INFO - Updated CSV with 2 rows for nro_oc 904
+2025-08-08 09:57:44,521 - INFO - Browser listening on: ws://127.0.0.1:64079/devtools/browser/0d0939a7-deb9-4deb-8603-64b836ca67f4
+2025-08-08 09:57:44,778 - INFO - terminate chrome process...
+2025-08-08 09:57:44,783 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-08 11:47:00,434 - INFO - Saved extracted text for MCT to extracted_text_MCT_20250808_114700.txt
+2025-08-08 11:47:04,358 - INFO - Saved corrected text for MCT to corrected_text_MCT_20250808_114700.txt
+2025-08-08 11:47:04,361 - INFO - Updated CSV with 1 rows for nro_oc 905
+2025-08-08 11:47:04,929 - INFO - Browser listening on: ws://127.0.0.1:50172/devtools/browser/4853bf2d-30bc-441e-a55f-dcaceebda1af
+2025-08-08 11:47:05,199 - INFO - terminate chrome process...
+2025-08-08 11:47:05,204 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf

@@ -1,3 +1,8 @@
+# make delivery conditions modifyable
+# add back create oc from data
+# add create oc with provider info 
+
+
 import os
 import fitz  # PyMuPDF
 import re
