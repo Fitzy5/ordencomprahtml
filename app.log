@@ -214,3 +214,15 @@
 2025-08-08 11:47:04,929 - INFO - Browser listening on: ws://127.0.0.1:50172/devtools/browser/4853bf2d-30bc-441e-a55f-dcaceebda1af
 2025-08-08 11:47:05,199 - INFO - terminate chrome process...
 2025-08-08 11:47:05,204 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-11 12:41:33,162 - INFO - Saved extracted text for ADCO_COTIZACION to extracted_text_ADCO_COTIZACION_20250811_124133.txt
+2025-08-11 12:41:35,969 - INFO - Saved corrected text for ADCO_COTIZACION to corrected_text_ADCO_COTIZACION_20250811_124133.txt
+2025-08-11 12:41:35,972 - INFO - Updated CSV with 4 rows for nro_oc 907
+2025-08-11 12:41:36,614 - INFO - Browser listening on: ws://127.0.0.1:57767/devtools/browser/1604bae1-3467-42c0-b6e3-8da81fc7fe88
+2025-08-11 12:41:36,937 - INFO - terminate chrome process...
+2025-08-11 12:41:36,943 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-08-11 12:42:27,956 - INFO - Saved extracted text for MCT to extracted_text_MCT_20250811_124227.txt
+2025-08-11 12:42:30,451 - INFO - Saved corrected text for MCT to corrected_text_MCT_20250811_124227.txt
+2025-08-11 12:42:30,454 - INFO - Updated CSV with 6 rows for nro_oc 908
+2025-08-11 12:42:31,014 - INFO - Browser listening on: ws://127.0.0.1:57787/devtools/browser/98d7c720-3cbb-4a71-a22d-1d1c292e1a96
+2025-08-11 12:42:31,204 - INFO - terminate chrome process...
+2025-08-11 12:42:31,209 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
