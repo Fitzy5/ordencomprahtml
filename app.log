@@ -421,3 +421,57 @@
 2025-10-14 11:32:07,996 - INFO - Browser listening on: ws://127.0.0.1:58549/devtools/browser/3e225f0a-6553-4c14-982f-1d0420f01d72
 2025-10-14 11:32:08,210 - INFO - terminate chrome process...
 2025-10-14 11:32:08,215 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-10-27 11:36:45,547 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251027_113645.txt
+2025-10-27 11:36:48,971 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251027_113645.txt
+2025-10-27 11:36:48,989 - INFO - Updated CSV with 5 rows for nro_oc 945
+2025-10-27 11:36:50,107 - INFO - Browser listening on: ws://127.0.0.1:56390/devtools/browser/5738d0ba-ce32-4861-84fb-67fac8358ff5
+2025-10-27 11:36:50,387 - INFO - terminate chrome process...
+2025-10-27 11:36:50,392 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-10-27 12:38:25,316 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251027_123825.txt
+2025-10-27 12:38:28,538 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251027_123825.txt
+2025-10-27 12:38:28,551 - WARNING - Duplicate entry for quotation 123157 or nro_oc 945
+2025-10-27 12:38:29,118 - INFO - Browser listening on: ws://127.0.0.1:56992/devtools/browser/0082f692-161b-4124-ab55-ade01a3647cc
+2025-10-27 12:38:29,366 - INFO - terminate chrome process...
+2025-10-27 12:38:29,372 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-10-27 12:48:19,566 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251027_124819.txt
+2025-10-27 12:48:23,172 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251027_124819.txt
+2025-10-27 12:48:23,174 - WARNING - Duplicate entry for quotation 123157 or nro_oc 945
+2025-10-27 12:48:23,734 - INFO - Browser listening on: ws://127.0.0.1:57834/devtools/browser/96f5606e-a0bc-4a36-b895-d8ba65808f3e
+2025-10-27 12:48:23,958 - INFO - terminate chrome process...
+2025-10-27 12:48:23,963 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-10-28 09:57:34,790 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251028_095734.txt
+2025-10-28 09:57:43,251 - WARNING - User cancelled text correction for EBEMA
+2025-10-28 09:57:43,251 - WARNING - Skipped C:/Users/jfrit/Downloads/811681 capital.pdf due to parsing issues or cancellation
+2025-10-28 09:58:26,688 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251028_095826.txt
+2025-10-28 09:58:29,404 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251028_095826.txt
+2025-10-28 09:58:29,409 - INFO - Updated CSV with 1 rows for nro_oc 946
+2025-10-28 09:58:30,508 - INFO - Browser listening on: ws://127.0.0.1:49201/devtools/browser/8abb1196-2bde-463c-8695-3539e4ff82c0
+2025-10-28 09:58:30,726 - INFO - terminate chrome process...
+2025-10-28 09:58:30,732 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-10-30 12:09:46,137 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251030_120946.txt
+2025-10-30 12:09:48,991 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251030_120946.txt
+2025-10-30 12:09:49,005 - INFO - Updated CSV with 2 rows for nro_oc 947
+2025-10-30 12:09:50,090 - INFO - Browser listening on: ws://127.0.0.1:51110/devtools/browser/0f60288b-27f8-42da-a8ba-d47ec75760ec
+2025-10-30 12:09:50,355 - INFO - terminate chrome process...
+2025-10-30 12:09:50,362 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-10-30 12:33:07,851 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251030_123307.txt
+2025-10-30 12:33:10,621 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251030_123307.txt
+2025-10-30 12:33:10,636 - WARNING - Duplicate entry for quotation 124451 or nro_oc 947
+2025-10-30 12:33:11,204 - INFO - Browser listening on: ws://127.0.0.1:64839/devtools/browser/6231fafc-0c21-41f3-89e2-5c2abe477dbb
+2025-10-30 12:33:11,428 - INFO - terminate chrome process...
+2025-10-30 12:33:11,434 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-11-03 10:16:10,639 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251103_101610.txt
+2025-11-03 10:16:14,942 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251103_101610.txt
+2025-11-03 10:16:14,959 - INFO - Updated CSV with 2 rows for nro_oc 945
+2025-11-03 10:16:16,056 - INFO - Browser listening on: ws://127.0.0.1:55796/devtools/browser/5cf93698-bbbb-43c0-837a-d9f2fa34da7e
+2025-11-03 10:16:16,292 - INFO - terminate chrome process...
+2025-11-03 10:16:16,297 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-11-03 11:46:07,997 - INFO - Saved extracted text for ADCO_NOTA_DE_VENTA to extracted_text_ADCO_NOTA_DE_VENTA_20251103_114607.txt
+2025-11-03 11:47:04,522 - INFO - Saved corrected text for ADCO_NOTA_DE_VENTA to corrected_text_ADCO_NOTA_DE_VENTA_20251103_114607.txt
+2025-11-03 11:47:04,522 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 14: could not convert string to float: 'NETO'
+2025-11-03 11:47:04,522 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 16: could not convert string to float: 'TOTAL NOTA DE VENTA'
+2025-11-03 11:47:04,522 - ERROR - Error parsing ADCO NOTA DE VENTA product at index 21: list index out of range
+2025-11-03 11:47:04,538 - INFO - Updated CSV with 2 rows for nro_oc 948
+2025-11-03 11:47:05,181 - INFO - Browser listening on: ws://127.0.0.1:60234/devtools/browser/1f4e809c-5533-430a-a8d4-01a06f1ec6bd
+2025-11-03 11:47:05,473 - INFO - terminate chrome process...
+2025-11-03 11:47:05,479 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
