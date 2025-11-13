@@ -475,3 +475,15 @@
 2025-11-03 11:47:05,181 - INFO - Browser listening on: ws://127.0.0.1:60234/devtools/browser/1f4e809c-5533-430a-a8d4-01a06f1ec6bd
 2025-11-03 11:47:05,473 - INFO - terminate chrome process...
 2025-11-03 11:47:05,479 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-11-11 15:30:22,943 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251111_153022.txt
+2025-11-11 15:30:25,224 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251111_153022.txt
+2025-11-11 15:30:25,230 - INFO - Updated CSV with 4 rows for nro_oc 950
+2025-11-11 15:30:26,345 - INFO - Browser listening on: ws://127.0.0.1:49891/devtools/browser/054b2aca-143b-41a3-b7c0-3140373a6495
+2025-11-11 15:30:26,618 - INFO - terminate chrome process...
+2025-11-11 15:30:26,624 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-11-13 12:34:54,918 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251113_123454.txt
+2025-11-13 12:34:57,267 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251113_123454.txt
+2025-11-13 12:34:57,284 - INFO - Updated CSV with 3 rows for nro_oc 951
+2025-11-13 12:34:58,387 - INFO - Browser listening on: ws://127.0.0.1:60260/devtools/browser/f19aba6a-8356-44d3-a2bc-6a8af7325d31
+2025-11-13 12:34:58,669 - INFO - terminate chrome process...
+2025-11-13 12:34:58,675 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
