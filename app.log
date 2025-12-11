@@ -520,3 +520,72 @@
 2025-11-26 15:16:09,989 - INFO - Browser listening on: ws://127.0.0.1:63360/devtools/browser/b59c2aef-2781-476a-a89f-57597f5dc702
 2025-11-26 15:16:10,238 - INFO - terminate chrome process...
 2025-11-26 15:16:10,245 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-02 13:22:31,677 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251202_132231.txt
+2025-12-02 13:22:34,816 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251202_132231.txt
+2025-12-02 13:22:34,832 - INFO - Updated CSV with 3 rows for nro_oc 958
+2025-12-02 13:22:35,941 - INFO - Browser listening on: ws://127.0.0.1:52357/devtools/browser/516426a6-b971-4fb7-a3bd-a2a332d1e83d
+2025-12-02 13:22:36,207 - INFO - terminate chrome process...
+2025-12-02 13:22:36,214 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-03 12:35:39,956 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251203_123539.txt
+2025-12-03 12:35:43,478 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251203_123539.txt
+2025-12-03 12:35:43,496 - INFO - Updated CSV with 4 rows for nro_oc 959
+2025-12-03 12:35:44,153 - INFO - Browser listening on: ws://127.0.0.1:49713/devtools/browser/cde042de-3231-45a4-ab7f-13e51ee6531a
+2025-12-03 12:35:44,472 - INFO - terminate chrome process...
+2025-12-03 12:35:44,479 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-05 11:31:23,217 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251205_113123.txt
+2025-12-05 11:31:29,867 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251205_113123.txt
+2025-12-05 11:31:29,886 - INFO - Updated CSV with 3 rows for nro_oc 960
+2025-12-05 11:31:30,976 - INFO - Browser listening on: ws://127.0.0.1:60952/devtools/browser/268314b4-4e8d-4f8d-92b0-61dd9f0aa803
+2025-12-05 11:31:31,228 - INFO - terminate chrome process...
+2025-12-05 11:31:31,235 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-09 11:20:16,748 - INFO - Saved extracted text for AISLAPANEL_CV to extracted_text_AISLAPANEL_CV_20251209_112016.txt
+2025-12-09 11:20:21,921 - INFO - Saved corrected text for AISLAPANEL_CV to corrected_text_AISLAPANEL_CV_20251209_112016.txt
+2025-12-09 11:20:21,939 - INFO - Updated CSV with 1 rows for nro_oc 961
+2025-12-09 11:20:23,035 - INFO - Browser listening on: ws://127.0.0.1:55380/devtools/browser/7a021525-4083-464c-8578-0cd26e75eed3
+2025-12-09 11:20:23,291 - INFO - terminate chrome process...
+2025-12-09 11:20:23,297 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-09 11:21:24,215 - INFO - Saved extracted text for AISLAPANEL_CV to extracted_text_AISLAPANEL_CV_20251209_112124.txt
+2025-12-09 11:21:43,423 - WARNING - User cancelled text correction for AISLAPANEL_CV
+2025-12-09 11:21:43,424 - WARNING - Skipped C:/Users/jfrit/Downloads/COV0000032711 MAHUIDA.pdf due to parsing issues or cancellation
+2025-12-10 10:21:27,036 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251210_102127.txt
+2025-12-10 10:21:29,855 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251210_102127.txt
+2025-12-10 10:21:29,859 - INFO - Updated CSV with 7 rows for nro_oc 962
+2025-12-10 10:21:30,968 - INFO - Browser listening on: ws://127.0.0.1:54602/devtools/browser/4bddd1a9-b64e-480e-b17e-f563b56f7249
+2025-12-10 10:21:31,206 - INFO - terminate chrome process...
+2025-12-10 10:21:31,213 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-11 10:55:13,613 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251211_105513.txt
+2025-12-11 10:55:17,263 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251211_105513.txt
+2025-12-11 10:55:17,278 - INFO - Updated CSV with 1 rows for nro_oc 963
+2025-12-11 10:55:18,379 - INFO - Browser listening on: ws://127.0.0.1:54145/devtools/browser/f5cc8fa0-ad26-4376-b8ae-7b4b72073849
+2025-12-11 10:55:18,612 - INFO - terminate chrome process...
+2025-12-11 10:55:18,618 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-11 11:01:24,462 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251211_110124.txt
+2025-12-11 11:01:27,322 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251211_110124.txt
+2025-12-11 11:01:27,336 - WARNING - Duplicate entry for quotation 839260 or nro_oc 964
+2025-12-11 11:01:27,900 - INFO - Browser listening on: ws://127.0.0.1:65530/devtools/browser/603f9177-c82b-4c9f-af9b-1d2245dcdba2
+2025-12-11 11:01:28,116 - INFO - terminate chrome process...
+2025-12-11 11:01:28,122 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-11 11:03:41,686 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251211_110341.txt
+2025-12-11 11:03:44,035 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251211_110341.txt
+2025-12-11 11:03:44,052 - INFO - Updated CSV with 7 rows for nro_oc 961
+2025-12-11 11:03:44,619 - INFO - Browser listening on: ws://127.0.0.1:56119/devtools/browser/a5513e97-c8ff-4262-88a2-ff3e26b6cb7e
+2025-12-11 11:03:44,831 - INFO - terminate chrome process...
+2025-12-11 11:03:44,836 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-11 11:04:51,740 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251211_110451.txt
+2025-12-11 11:04:54,471 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251211_110451.txt
+2025-12-11 11:04:54,474 - WARNING - Duplicate entry for quotation 839260 or nro_oc 962
+2025-12-11 11:04:55,036 - INFO - Browser listening on: ws://127.0.0.1:56206/devtools/browser/8bf356c4-3df9-4a8e-91b0-29d28994e6f1
+2025-12-11 11:04:55,253 - INFO - terminate chrome process...
+2025-12-11 11:04:55,258 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-11 11:06:29,922 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251211_110629.txt
+2025-12-11 11:06:32,331 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251211_110629.txt
+2025-12-11 11:06:32,334 - WARNING - Duplicate entry for quotation 839260 or nro_oc 962
+2025-12-11 11:06:32,903 - INFO - Browser listening on: ws://127.0.0.1:63015/devtools/browser/ae82fb2a-711f-44d6-8ecf-64a0118ee65f
+2025-12-11 11:06:33,123 - INFO - terminate chrome process...
+2025-12-11 11:06:33,128 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-11 11:07:45,880 - INFO - Saved extracted text for EBEMA to extracted_text_EBEMA_20251211_110745.txt
+2025-12-11 11:07:48,455 - INFO - Saved corrected text for EBEMA to corrected_text_EBEMA_20251211_110745.txt
+2025-12-11 11:07:48,460 - INFO - Updated CSV with 1 rows for nro_oc 963
+2025-12-11 11:07:49,020 - INFO - Browser listening on: ws://127.0.0.1:63115/devtools/browser/cacd6782-27ea-45b4-a069-2210478c8101
+2025-12-11 11:07:49,250 - INFO - terminate chrome process...
+2025-12-11 11:07:49,255 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
