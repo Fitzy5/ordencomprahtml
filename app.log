@@ -589,3 +589,9 @@
 2025-12-11 11:07:49,020 - INFO - Browser listening on: ws://127.0.0.1:63115/devtools/browser/cacd6782-27ea-45b4-a069-2210478c8101
 2025-12-11 11:07:49,250 - INFO - terminate chrome process...
 2025-12-11 11:07:49,255 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
+2025-12-15 13:52:06,183 - INFO - Saved extracted text for MCT to extracted_text_MCT_20251215_135206.txt
+2025-12-15 13:52:08,793 - INFO - Saved corrected text for MCT to corrected_text_MCT_20251215_135206.txt
+2025-12-15 13:52:08,800 - INFO - Updated CSV with 4 rows for nro_oc 965
+2025-12-15 13:52:09,926 - INFO - Browser listening on: ws://127.0.0.1:59049/devtools/browser/6d50ed75-eace-4b90-8879-543233dad3ba
+2025-12-15 13:52:10,243 - INFO - terminate chrome process...
+2025-12-15 13:52:10,249 - INFO - Successfully generated PDF: ORDEN DE COMPRA.pdf
