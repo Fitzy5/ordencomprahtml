@@ -5,6 +5,11 @@ Genera una orden de compra en PDF a partir de un JSON con los datos de la cotiza
 Uso:
     python generar_oc.py datos.json [--salida ARCHIVO.pdf] [--numero N]
                                     [--sin-registro] [--forzar] [--base DIR]
+    python generar_oc.py datos.json --solo-precios   # registra precios sin OC (nro_oc -1)
+
+Cotizaciones sin OC: se guardan en registry.csv con nro_oc = -1. Si después se
+emite la OC de esa misma cotización, las filas -1 se reemplazan por las de la OC
+(no quedan precios duplicados).
 
 Flujo:
   1. Valida el JSON y calcula subtotales, neto, IVA (19%) y total.
@@ -109,16 +114,52 @@ def cargar_proveedor(base, nombre):
     )
 
 
-def existe_duplicado(base, nro_cotizacion, proveedor):
+SIN_OC = "-1"  # marca en registry.csv: cotización registrada solo para seguir precios
+
+
+def es_sin_oc(nro_oc):
+    try:
+        return int(str(nro_oc).strip()) <= 0
+    except ValueError:
+        return True
+
+
+def misma_cotizacion(row, nro_cotizacion, proveedor):
+    return (str(row.get("quotation_number", "")).strip() == str(nro_cotizacion).strip()
+            and normalizar(row.get("provider", "")) == normalizar(proveedor))
+
+
+def estado_cotizacion(base, nro_cotizacion, proveedor):
+    """Devuelve (nro_oc_emitida o None, hay_filas_solo_precios: bool)."""
     ruta = os.path.join(base, "registry.csv")
+    oc, solo_precios = None, False
     if not os.path.isfile(ruta):
-        return None
+        return oc, solo_precios
     with open(ruta, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            if (str(row.get("quotation_number", "")).strip() == str(nro_cotizacion).strip()
-                    and normalizar(row.get("provider", "")) == normalizar(proveedor)):
-                return row.get("nro_oc", "?")
-    return None
+            if misma_cotizacion(row, nro_cotizacion, proveedor):
+                if es_sin_oc(row.get("nro_oc")):
+                    solo_precios = True
+                else:
+                    oc = row.get("nro_oc")
+    return oc, solo_precios
+
+
+def quitar_filas_solo_precios(base, nro_cotizacion, proveedor):
+    """Al emitir OC de una cotización que estaba registrada solo por precios,
+    se eliminan esas filas (-1) para que la cotización no quede duplicada."""
+    ruta = os.path.join(base, "registry.csv")
+    with open(ruta, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        campos = reader.fieldnames
+        filas = list(reader)
+    quedan = [r for r in filas
+              if not (misma_cotizacion(r, nro_cotizacion, proveedor) and es_sin_oc(r.get("nro_oc")))]
+    with open(ruta, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=campos)
+        w.writeheader()
+        w.writerows(quedan)
+    return len(filas) - len(quedan)
 
 
 # ---------------------------------------------------------------- cálculo
@@ -294,6 +335,8 @@ def main():
     ap.add_argument("--numero", type=int, help="Forzar un número de OC específico (no toca nro_oc.txt)")
     ap.add_argument("--sin-registro", action="store_true", help="No escribir en registry.csv ni nro_oc.txt")
     ap.add_argument("--forzar", action="store_true", help="Generar aunque haya duplicado o los totales no cuadren")
+    ap.add_argument("--solo-precios", action="store_true",
+                    help="No genera OC: solo registra los precios en registry.csv con nro_oc -1")
     ap.add_argument("--base", default=os.path.dirname(os.path.abspath(__file__)),
                     help="Directorio con plantilla, providers.csv, registry.csv y nro_oc.txt")
     args = ap.parse_args()
@@ -306,14 +349,38 @@ def main():
         if not datos.get(campo):
             sys.exit(f"ERROR: falta el campo '{campo}' en el JSON.")
 
+    if normalizar(str(datos["nro_cotizacion"])) in ("unknown", "", "0"):
+        sys.exit("ERROR: el número de cotización es obligatorio (no 'Unknown').")
+
     prov = cargar_proveedor(base, datos["proveedor"])
     filas, neto, iva, total = calcular(datos)
     verificar(datos, neto, iva, total, args.forzar)
 
-    dup = existe_duplicado(base, datos["nro_cotizacion"], prov["provider"])
-    if dup and not args.forzar and not args.numero:
+    oc_previa, hay_solo_precios = estado_cotizacion(base, datos["nro_cotizacion"], prov["provider"])
+
+    # ---- modo solo precios: registra con nro_oc -1, sin PDF ni correlativo
+    if args.solo_precios:
+        if oc_previa:
+            sys.exit(f"ERROR: la cotización {datos['nro_cotizacion']} de {prov['provider']} "
+                     f"ya tiene la OC N°{oc_previa}; sus precios ya están en el registro.")
+        if hay_solo_precios and not args.forzar:
+            sys.exit(f"ERROR: la cotización {datos['nro_cotizacion']} de {prov['provider']} "
+                     f"ya está registrada para seguimiento de precios.")
+        if hay_solo_precios:
+            quitar_filas_solo_precios(base, datos["nro_cotizacion"], prov["provider"])
+            print("Registro anterior de la cotización reemplazado (--forzar).")
+        forma_pago = datos.get("forma_pago") or ""
+        actualizar_registro(base, datos, prov, filas, SIN_OC, "", forma_pago)
+        print(f"Precios registrados SIN OC | {prov['provider']} | cotización "
+              f"{datos['nro_cotizacion']} | {len(filas)} ítems | Neto {fmt_clp(neto)}")
+        return
+
+    if oc_previa and not args.forzar and not args.numero:
         sys.exit(f"ERROR: la cotización {datos['nro_cotizacion']} de {prov['provider']} "
-                 f"ya tiene la OC N°{dup} en registry.csv. Usa --forzar para repetirla.")
+                 f"ya tiene la OC N°{oc_previa} en registry.csv. Usa --forzar para repetirla.")
+    if hay_solo_precios:
+        print("Nota: esta cotización estaba registrada solo por precios (-1); "
+              "esas filas se reemplazarán por las de la OC.")
 
     # correlativo: solo ahora se consume
     ruta_nro = os.path.join(base, "nro_oc.txt")
@@ -338,6 +405,9 @@ def main():
             with open(ruta_nro, "w") as f:
                 f.write(str(nro_oc + 1))
             print(f"nro_oc.txt -> {nro_oc + 1}")
+        if hay_solo_precios:
+            n = quitar_filas_solo_precios(base, datos["nro_cotizacion"], prov["provider"])
+            print(f"{n} filas de solo-precios convertidas a la OC N°{nro_oc}.")
         actualizar_registro(base, datos, prov, filas, nro_oc, fecha_oc, forma_pago)
 
 

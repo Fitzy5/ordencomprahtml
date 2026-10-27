@@ -48,3 +48,12 @@ y `verificacion` (neto/iva/total que declara la cotización, para cruce automát
 AISLACENTRO (reproduce la O.C. N°1030 exacta), COMERCIAL JONAS (descuentos y
 descripciones multilínea), SODIMAC/HC (formato Reporte_Cotizacion), y los formatos
 MCT y EBEMA quedan cubiertos porque Claude los lee directamente.
+
+## Cotizaciones sin OC (seguimiento de precios)
+
+```bash
+python generar_oc.py datos.json --solo-precios
+```
+Registra los ítems en `registry.csv` con `nro_oc = -1`, sin PDF y sin consumir
+correlativo. Si después se emite la OC de esa misma cotización, las filas `-1`
+se reemplazan automáticamente por las de la OC (no quedan precios duplicados).
