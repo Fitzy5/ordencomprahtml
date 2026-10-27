@@ -57,3 +57,13 @@ python generar_oc.py datos.json --solo-precios
 Registra los ítems en `registry.csv` con `nro_oc = -1`, sin PDF y sin consumir
 correlativo. Si después se emite la OC de esa misma cotización, las filas `-1`
 se reemplazan automáticamente por las de la OC (no quedan precios duplicados).
+
+## Exportar el registro a Excel
+
+```bash
+python exportar_excel.py          # más antigua primero
+python exportar_excel.py --desc   # más reciente primero
+```
+Genera `output/registro_precios_<fecha>.xlsx` con: Index, Glosa, N° OC,
+N° Cotización, Precio neto, Cantidad, Fecha cotización, Fecha OC. Las
+cotizaciones sin OC (-1) aparecen como "SIN OC" en gris.
