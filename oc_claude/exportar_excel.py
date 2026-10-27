@@ -3,13 +3,13 @@
 Exporta registry.csv a un Excel de seguimiento de precios, ordenado por fecha.
 
 Uso:
-    python exportar_excel.py [--salida ARCHIVO.xlsx] [--desc] [--base DIR]
+    python exportar_excel.py [--salida ARCHIVO.xlsx] [--asc] [--base DIR]
 
 Columnas: Index | Glosa | N° OC | N° Cotización | Precio neto | Cantidad |
           Fecha cotización | Fecha OC
 
 - Orden: por fecha de cotización (si falta, se usa la fecha de OC), de la más
-  antigua a la más reciente. Con --desc, la más reciente primero.
+  reciente (arriba) a la más antigua (abajo). Con --asc, al revés.
 - Las cotizaciones registradas solo por precios (nro_oc -1) aparecen como
   "SIN OC" y sin fecha de OC.
 - Los precios del registro vienen en formatos mezclados ($8,720 / $8.720 /
@@ -72,7 +72,7 @@ def sin_oc(nro):
 def main():
     ap = argparse.ArgumentParser(description="Exporta registry.csv a Excel ordenado por fecha.")
     ap.add_argument("--salida", help="Ruta del .xlsx (default: output/registro_precios_<fecha>.xlsx)")
-    ap.add_argument("--desc", action="store_true", help="Más reciente primero")
+    ap.add_argument("--asc", action="store_true", help="Más antigua primero (por defecto: más reciente primero)")
     ap.add_argument("--base", default=os.path.dirname(os.path.abspath(__file__)))
     args = ap.parse_args()
 
@@ -96,7 +96,7 @@ def main():
                 "orden": f_cot or f_oc or date.min,
             })
 
-    filas.sort(key=lambda x: (x["orden"], str(x["index"])), reverse=args.desc)
+    filas.sort(key=lambda x: (x["orden"], str(x["index"])), reverse=not args.asc)
 
     wb = Workbook()
     ws = wb.active

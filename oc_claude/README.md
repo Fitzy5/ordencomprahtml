@@ -61,8 +61,8 @@ se reemplazan automáticamente por las de la OC (no quedan precios duplicados).
 ## Exportar el registro a Excel
 
 ```bash
-python exportar_excel.py          # más antigua primero
-python exportar_excel.py --desc   # más reciente primero
+python exportar_excel.py          # más reciente arriba (por defecto)
+python exportar_excel.py --asc    # más antigua arriba
 ```
 Genera `output/registro_precios_<fecha>.xlsx` con: Index, Glosa, N° OC,
 N° Cotización, Precio neto, Cantidad, Fecha cotización, Fecha OC. Las
