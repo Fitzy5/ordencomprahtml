@@ -1,0 +1,24 @@
+{
+  "MAHUIDA": {
+    "nombre_oc": "CONSTRUCTORA MAHUIDA",
+    "razon_social_l1": "SOCIEDAD CONSTRUCTORA",
+    "razon_social_l2": "MAHUIDA LIMITADA.",
+    "direccion": "O'higgins 01081",
+    "ciudad": "Temuco, Región De La Araucania.",
+    "telefono": "+56998530122",
+    "sitio_web": "www.sociedadmahuida.cl",
+    "logo": "logos/logo_mahuida.png",
+    "contacto": "CLAUDIA PONCE RAPIMAN, CLAUDIA@SOCIEDADMAHUIDA.CL"
+  },
+  "CAPITAL": {
+    "nombre_oc": "CONSTRUCTORA CAPITAL",
+    "razon_social_l1": "CONSTRUCTORA",
+    "razon_social_l2": "CAPITAL LIMITADA.",
+    "direccion": "O'higgins 01081",
+    "ciudad": "Temuco, Región De La Araucania.",
+    "telefono": "+56998530122",
+    "sitio_web": "www.constructoracapital.cl",
+    "logo": "logos/logo_capital.png",
+    "contacto": "CLAUDIA PONCE RAPIMAN, CLAUDIA@SOCIEDADMAHUIDA.CL"
+  }
+}

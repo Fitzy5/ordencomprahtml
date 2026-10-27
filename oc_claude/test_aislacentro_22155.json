@@ -1,0 +1,14 @@
+{
+  "empresa": "MAHUIDA",
+  "proveedor": "AISLACENTRO LTDA",
+  "nro_cotizacion": "22155",
+  "fecha_cotizacion": "13-10-2026",
+  "forma_pago": "cheque 30 días",
+  "condicion_entrega": "retiro bodega",
+  "items": [
+    {"codigo": "", "descripcion": "BASE PRO EIFS SACO 22,7KG ETCO", "cantidad": 41, "unidad": "UD", "precio_unitario": 8720},
+    {"codigo": "", "descripcion": "PERFIL EIFS PVC MALLA TERMINACION 2,5MT", "cantidad": 100, "unidad": "UD", "precio_unitario": 1690},
+    {"codigo": "", "descripcion": "MALLA EIFS YELLOW 1X50MTS", "cantidad": 8, "unidad": "UD", "precio_unitario": 21125}
+  ],
+  "verificacion": {"neto": 695520, "iva": 132149, "total": 827669}
+}

@@ -1,0 +1,15 @@
+{
+  "empresa": "MAHUIDA",
+  "proveedor": "COMERCIAL JONAS SPA",
+  "nro_cotizacion": "59678",
+  "fecha_cotizacion": "13-01-2026",
+  "forma_pago": "100% cheque 30 días",
+  "condicion_entrega": "retiro bodega",
+  "comentarios": "Precios incluyen 15% de descuento según cotización.",
+  "items": [
+    {"codigo": "250698", "descripcion": "Vent. Pasiva Jonas 4 Version Estandar (F) con Tyfon y Filtro MP 2.5, 100mm c/direccion aire", "cantidad": 20, "unidad": "UN", "precio_unitario": 33716.95},
+    {"codigo": "197075", "descripcion": "Extractor Reton 100 BTH con Timer e Higrostato, Diam. 100mm, Fab. Inglesa", "cantidad": 12, "unidad": "UN", "precio_unitario": 31169.5},
+    {"codigo": "801701", "descripcion": "Celosia Proyectante #150 blanca", "cantidad": 12, "unidad": "UN", "precio_unitario": 4210.05}
+  ],
+  "verificacion": {"neto": 1098894, "iva": 208790, "total": 1307684}
+}

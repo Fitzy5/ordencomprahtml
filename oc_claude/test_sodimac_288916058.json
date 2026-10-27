@@ -1,0 +1,13 @@
+{
+  "empresa": "MAHUIDA",
+  "proveedor": "SODIMAC",
+  "nro_cotizacion": "288916058",
+  "fecha_cotizacion": "22-10-2026",
+  "condicion_entrega": "retiro bodega HC Temuco",
+  "comentarios": "Obra FILLIPHI 530. Cotización 1-1TLBTY53-1, válida hasta 01/11/2026.",
+  "items": [
+    {"codigo": "284440", "descripcion": "PLANCHA GYPLAC ST 15MM 1,2X2,4", "cantidad": 40, "unidad": "PL", "precio_unitario": 7133.41},
+    {"codigo": "249101X", "descripcion": "PLANCHA FIBRO CER 6MM 1,2X2,4", "cantidad": 8, "unidad": "PL", "precio_unitario": 10219.25}
+  ],
+  "verificacion": {"neto": 367090, "iva": 69748, "total": 436838}
+}

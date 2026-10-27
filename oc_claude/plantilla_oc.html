@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Orden de Compra</title>
+<style>
+  :root {
+    --azul: #3a5894;
+    --azul-titulo: #95a9d4;
+    --gris-borde: #b7b7b7;
+    --gris-fila: #ededed;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #000;
+    width: 210mm;
+    padding: 12mm 14mm;
+    background: #fff;
+  }
+  /* ---------- Encabezado ---------- */
+  .encabezado { display: flex; justify-content: space-between; }
+  .emp-datos { padding-top: 14px; width: 55%; }
+  .emp-nombre {
+    color: var(--azul-titulo);
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    width: 320px;
+    line-height: 1.25;
+  }
+  .emp-info { margin-top: 6px; font-size: 12px; line-height: 1.5; }
+  .oc-cabecera { text-align: right; width: 42%; }
+  .oc-cabecera img.logo { height: 52px; margin-bottom: 2px; }
+  .oc-titulo {
+    color: var(--azul-titulo);
+    font-weight: bold;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+  }
+  .oc-meta { margin-top: 4px; font-size: 12px; }
+  .oc-meta table { border-collapse: collapse; margin-left: auto; }
+  .oc-meta td { padding: 2px 4px; }
+  .oc-meta .campo { border: 1px solid var(--gris-borde); min-width: 110px; text-align: center; background: #fff; }
+  /* ---------- Bloques vendedor / condiciones ---------- */
+  .bloques { display: flex; justify-content: space-between; margin-top: 18px; }
+  .col-izq { width: 46%; }
+  .col-der { width: 46%; }
+  .etiqueta {
+    background: var(--azul);
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 3px 8px;
+    margin-bottom: 4px;
+  }
+  .valor { font-size: 11.5px; line-height: 1.45; margin-bottom: 12px; min-height: 15px; }
+  /* ---------- Tabla de ítems ---------- */
+  table.items { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  table.items thead th {
+    background: var(--azul);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+  table.items td {
+    border: 1px solid #d9d9d9;
+    padding: 3px 6px;
+    font-size: 10.5px;
+    vertical-align: top;
+  }
+  table.items td.num { text-align: right; white-space: nowrap; }
+  table.items td.ctr { text-align: center; white-space: nowrap; }
+  table.items td.total-col { background: var(--gris-fila); }
+  /* ---------- Totales ---------- */
+  .pie { display: flex; justify-content: space-between; margin-top: 10px; }
+  .comentarios { width: 55%; }
+  .comentarios .titulo-com {
+    background: #bfbfbf;
+    font-weight: bold;
+    padding: 3px 8px;
+    font-size: 11.5px;
+  }
+  .comentarios .caja {
+    border: 1px solid var(--gris-borde);
+    min-height: 110px;
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 11.5px;
+  }
+  table.totales { border-collapse: collapse; font-size: 12px; margin-top: 4px; }
+  table.totales td { padding: 3px 6px; }
+  table.totales td.lbl { text-align: left; padding-right: 20px; }
+  table.totales td.val {
+    border: 1px solid var(--gris-borde);
+    min-width: 110px;
+    text-align: right;
+  }
+  table.totales tr.gran-total td.lbl { font-weight: bold; border-top: 3px double #000; }
+  table.totales tr.gran-total td.val { background: #aab8dd; font-weight: bold; border-top: 3px double #000; }
+  table.totales tr.subtotal td.val { background: var(--gris-fila); border: none; }
+  /* ---------- Contacto ---------- */
+  .contacto { margin-top: 28px; text-align: center; font-size: 12px; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <div class="encabezado">
+    <div class="emp-datos">
+      <div class="emp-nombre">{{razon_social_l1}}<br>{{razon_social_l2}}</div>
+      <div class="emp-info">
+        {{direccion}}<br>
+        {{ciudad}}<br>
+        Telefono: {{telefono}}<br>
+        Sitio Web: {{sitio_web}}
+      </div>
+    </div>
+    <div class="oc-cabecera">
+      <img class="logo" src="{{logo}}" alt="logo">
+      <div class="oc-titulo">ORDEN DE COMPRA</div>
+      <div class="oc-meta">
+        <table>
+          <tr><td>FECHA</td><td class="campo">{{fecha_oc}}</td></tr>
+          <tr><td>OC #</td><td class="campo">{{nro_oc}}</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloques">
+    <div class="col-izq">
+      <div class="etiqueta">VENDEDOR</div>
+      <div class="valor">
+        {{vendedor}}<br>
+        {{proveedor}}<br><br>
+        {{direccion_proveedor}}<br>
+        {{ubicacion_proveedor}}<br><br>
+        {{contacto_proveedor}}<br>
+        {{correo_proveedor}}
+      </div>
+    </div>
+    <div class="col-der">
+      <div class="etiqueta">FORMA DE PAGO</div>
+      <div class="valor">{{forma_pago}}</div>
+      <div class="etiqueta">CONDICION DE ENTREGA</div>
+      <div class="valor">{{condicion_entrega}}</div>
+      <div class="etiqueta">COTIZACI&Oacute;N N&deg;</div>
+      <div class="valor">{{nro_cotizacion}}</div>
+    </div>
+  </div>
+
+  <table class="items">
+    <thead>
+      <tr>
+        <th style="width:13%">ARTICULO #</th>
+        <th style="width:42%">DESCRIPCI&Oacute;N</th>
+        <th style="width:10%">CANT</th>
+        <th style="width:8%">UN</th>
+        <th style="width:12%">p/u</th>
+        <th style="width:15%">TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+{{FILAS}}
+    </tbody>
+  </table>
+
+  <div class="pie">
+    <div class="comentarios">
+      <div class="titulo-com">Comentarios o instrucciones especiales</div>
+      <div class="caja">{{comentarios}}</div>
+    </div>
+    <div>
+      <table class="totales">
+        <tr class="subtotal"><td class="lbl">SUBTOTAL</td><td class="val">{{total}}</td></tr>
+        <tr><td class="lbl">IMPUESTO</td><td class="val">{{total_iva}}</td></tr>
+        <tr><td class="lbl">ENV&Iacute;O</td><td class="val">{{envio}}</td></tr>
+        <tr><td class="lbl">OTRO</td><td class="val">{{otro}}</td></tr>
+        <tr class="gran-total"><td class="lbl">TOTAL</td><td class="val">{{gran_total}}</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="contacto">
+    Si usted tiene alguna pregunta sobre esta orden de compra, por favor, p&oacute;ngase en contacto con<br>
+    [{{contacto}}]
+  </div>
+</body>
+</html>
