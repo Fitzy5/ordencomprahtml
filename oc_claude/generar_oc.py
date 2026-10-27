@@ -23,7 +23,6 @@ Formato del JSON de entrada (lo produce Claude al leer la cotización):
   "fecha_cotizacion": "13-10-2026",
   "forma_pago": "cheque 30 días",        // opcional (default por proveedor abajo)
   "condicion_entrega": "retiro bodega",  // opcional
-  "comentarios": "STOCK BODEGA OHIGGINS.", // opcional
   "items": [
     {"codigo": "", "descripcion": "BASE PRO EIFS SACO 22,7KG ETCO",
      "cantidad": 41, "unidad": "UD", "precio_unitario": 8720}
@@ -50,7 +49,8 @@ FORMA_PAGO_DEFAULT = {
 }
 FORMA_PAGO_GENERICA = "cheque 30 días"
 CONDICION_ENTREGA_DEFAULT = "retiro bodega"
-COMENTARIOS_DEFAULT = "STOCK BODEGA OHIGGINS."
+# Texto fijo del recuadro "Comentarios o instrucciones especiales" (no se toma del JSON)
+COMENTARIOS_FIJOS = "STOCK BODEGA LABRANZA"
 
 
 # ---------------------------------------------------------------- utilidades
@@ -210,7 +210,7 @@ def render(base, datos, prov, filas, neto, iva, total, nro_oc, fecha_oc):
         "forma_pago": esc(forma_pago),
         "condicion_entrega": esc(datos.get("condicion_entrega") or CONDICION_ENTREGA_DEFAULT),
         "nro_cotizacion": esc(datos["nro_cotizacion"]),
-        "comentarios": esc(datos.get("comentarios") or COMENTARIOS_DEFAULT),
+        "comentarios": esc(COMENTARIOS_FIJOS),
         "total": fmt_clp(neto),
         "total_iva": fmt_clp(iva),
         "envio": "0",
