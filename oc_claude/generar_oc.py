@@ -40,6 +40,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import sys
 import unicodedata
 from datetime import datetime
@@ -160,6 +161,19 @@ def quitar_filas_solo_precios(base, nro_cotizacion, proveedor):
         w.writeheader()
         w.writerows(quedan)
     return len(filas) - len(quedan)
+
+
+def nombre_corto(prov):
+    """Nombre del proveedor para el archivo: 'O.C.N°1032 EBEMA.pdf'.
+    Usa la columna nombre_corto de providers.csv; si está vacía, lo deriva
+    quitando razón social (COMERCIAL, S.A., LTDA, SPA...)."""
+    corto = (prov.get("nombre_corto") or "").strip()
+    if corto:
+        return corto.upper()
+    palabras = [w for w in re.sub(r"[^\w\s]", " ", prov["provider"]).upper().split()
+                if w not in {"COMERCIAL", "SA", "S", "A", "LTDA", "SPA", "LIMITADA",
+                             "CV", "NV", "EIRL", "CIA", "Y", "DE", "MADERAS", "SOCIEDAD"}]
+    return palabras[0] if palabras else prov["provider"].upper()
 
 
 # ---------------------------------------------------------------- cálculo
@@ -393,7 +407,7 @@ def main():
     fecha_oc = datetime.today().strftime("%d-%m-%Y")
     html, forma_pago = render(base, datos, prov, filas, neto, iva, total, nro_oc, fecha_oc)
 
-    salida = args.salida or os.path.join(base, "output", f"O.C.N°{nro_oc} {prov['provider']}.pdf")
+    salida = args.salida or os.path.join(base, "output", f"O.C.N°{nro_oc} {nombre_corto(prov)}.pdf")
     os.makedirs(os.path.dirname(os.path.abspath(salida)), exist_ok=True)
     html_a_pdf(base, html, salida)
     print(f"PDF generado: {salida}")
