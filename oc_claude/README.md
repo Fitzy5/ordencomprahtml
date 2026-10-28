@@ -67,3 +67,12 @@ python exportar_excel.py --asc    # más antigua arriba
 Genera `output/registro_precios_<fecha>.xlsx` con: Index, Glosa, N° OC,
 N° Cotización, Precio neto, Cantidad, Fecha cotización, Fecha OC. Las
 cotizaciones sin OC (-1) aparecen como "SIN OC" en gris.
+
+## Entrega por zip (push manual)
+
+```bash
+python empaquetar.py "OC N°1033 EBEMA S.A. (cotización 1059456)"
+```
+Genera `output/oc_claude_<fecha>.zip` con la carpeta `oc_claude/` actualizada
+y un `CAMBIOS.txt` (ignorado por git) con el mensaje de commit sugerido. Se
+copia encima de la carpeta del repo en el PC, se hace commit y Push origin.
