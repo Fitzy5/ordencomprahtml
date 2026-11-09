@@ -1,12 +1,12 @@
 {
   "empresa": "MAHUIDA",
   "proveedor": "EBEMA S.A.",
-  "nro_cotizacion": "1075768",
+  "nro_cotizacion": "1075769",
   "fecha_cotizacion": "09-11-2026",
   "forma_pago": "Pagadero a 45 días",
   "condicion_entrega": "retiro Centro Logístico Temuco",
   "items": [
-    {"codigo": "515820", "descripcion": "YESO CARTON ST BR 15MM 1,2X2,4M", "cantidad": 40, "unidad": "Plancha", "precio_unitario": 9032}
+    {"codigo": "513383", "descripcion": "ADHESIVO PORCELANATO 25KG WEBER-DA", "cantidad": 60, "unidad": "Saco", "precio_unitario": 7930}
   ],
-  "verificacion": {"neto": 361280, "iva": 68643, "total": 429923}
+  "verificacion": {"neto": 475800, "iva": 90402, "total": 566202}
 }
