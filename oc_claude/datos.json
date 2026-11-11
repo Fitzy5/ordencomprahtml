@@ -1,12 +1,12 @@
 {
   "empresa": "MAHUIDA",
   "proveedor": "EBEMA S.A.",
-  "nro_cotizacion": "1075769",
-  "fecha_cotizacion": "09-11-2026",
+  "nro_cotizacion": "1077730",
+  "fecha_cotizacion": "11-11-2026",
   "forma_pago": "Pagadero a 45 días",
-  "condicion_entrega": "retiro Centro Logístico Temuco",
+  "condicion_entrega": "retiro Centro Logístico de Temuco",
   "items": [
-    {"codigo": "513383", "descripcion": "ADHESIVO PORCELANATO 25KG WEBER-DA", "cantidad": 60, "unidad": "Saco", "precio_unitario": 7930}
+    {"codigo": "513624", "descripcion": "OSB PAIS 11,1MM 1,22X2,44M", "cantidad": 72, "unidad": "Plancha", "precio_unitario": 10855}
   ],
-  "verificacion": {"neto": 475800, "iva": 90402, "total": 566202}
+  "verificacion": {"neto": 781560, "iva": 148496, "total": 930056}
 }
